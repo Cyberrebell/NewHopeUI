@@ -1,0 +1,6 @@
+## Interface: 20400
+## Title: NewHopeUI
+## Notes: Notes about MyAddon
+## Version: 0.0.1
+BottomFrame\BottomFrame.lua
+BottomFrame\BottomFrame.xml
