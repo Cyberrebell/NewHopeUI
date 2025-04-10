@@ -1,0 +1,83 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="../UI.xsd">
+    <Frame name="NHBoss" virtual="true">
+        <Size>
+            <AbsDimension x="800" y="40"/>
+        </Size>
+        <Anchors>
+            <Anchor point="RIGHT"/>
+        </Anchors>
+        <Layers>
+            <Layer>
+                <FontString text="Boss-Bar" inherits="GameFontNormal">
+                    <Anchors>
+                        <Anchor point="TOP"></Anchor>
+                    </Anchors>
+                    <FontHeight>
+                        <RelValue val="8"/>
+                    </FontHeight>
+                    <Color r="1" g="1" b="1"/>
+                </FontString>
+            </Layer>
+        </Layers>
+        <Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background">
+            <Color r="0" g="0" b="0" a="1"/>
+        </Backdrop>
+        <Frames>
+            <Frame>
+                <Size>
+                    <AbsDimension x="600" y="20"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT"/>
+                </Anchors>
+                <Layers>
+                    <Layer>
+                        <FontString text="Karathress (75%)" inherits="GameFontNormal">
+                            <Anchors>
+                                <Anchor point="CENTER"></Anchor>
+                            </Anchors>
+                            <FontHeight>
+                                <RelValue val="8"/>
+                            </FontHeight>
+                            <Color r="1" g="1" b="1"/>
+                        </FontString>
+                    </Layer>
+                </Layers>
+                <Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background">
+                    <Color r="1" g="0" b="0"/>
+                </Backdrop>
+            </Frame>
+            <Frame>
+                <Size>
+                    <AbsDimension x="400" y="20"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT"/>
+                </Anchors>
+                <Layers>
+                    <Layer>
+                        <FontString text="Caribdis (50%)" inherits="GameFontNormal">
+                            <Anchors>
+                                <Anchor point="CENTER"></Anchor>
+                            </Anchors>
+                            <FontHeight>
+                                <RelValue val="8"/>
+                            </FontHeight>
+                            <Color r="1" g="1" b="1"/>
+                        </FontString>
+                    </Layer>
+                </Layers>
+                <Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background">
+                    <Color r="1" g="0" b="0"/>
+                </Backdrop>
+            </Frame>
+        </Frames>
+        <Scripts>
+            <OnLoad>
+                NHBoss_OnLoad();
+            </OnLoad>
+        </Scripts>
+    </Frame>
+</Ui>

@@ -1,0 +1,33 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="../UI.xsd">
+    <Frame name="NHRaid" virtual="true">
+        <Size>
+            <AbsDimension x="200" y="400"/>
+        </Size>
+        <Anchors>
+            <Anchor point="CENTER"/>
+        </Anchors>
+        <Layers>
+            <Layer>
+                <FontString text="Raid players" inherits="GameFontNormal">
+                    <Anchors>
+                        <Anchor point="TOP"></Anchor>
+                    </Anchors>
+                    <FontHeight>
+                        <RelValue val="8"/>
+                    </FontHeight>
+                    <Color r="1" g="1" b="1"/>
+                </FontString>
+            </Layer>
+        </Layers>
+        <Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background">
+            <Color r="0" g="0" b="0" a="1"/>
+        </Backdrop>
+        <Scripts>
+            <OnLoad>
+                NHRaid_OnLoad();
+            </OnLoad>
+        </Scripts>
+    </Frame>
+</Ui>

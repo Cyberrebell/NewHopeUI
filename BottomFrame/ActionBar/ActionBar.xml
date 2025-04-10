@@ -1,0 +1,33 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="../UI.xsd">
+    <Frame name="NHActionBar" virtual="true">
+        <Size>
+            <AbsDimension x="600" y="160"/>
+        </Size>
+        <Anchors>
+            <Anchor point="BOTTOM"/>
+        </Anchors>
+        <Layers>
+            <Layer>
+                <FontString text="ActionBar" inherits="GameFontNormal">
+                    <Anchors>
+                        <Anchor point="TOP"></Anchor>
+                    </Anchors>
+                    <FontHeight>
+                        <RelValue val="8"/>
+                    </FontHeight>
+                    <Color r="1" g="1" b="1"/>
+                </FontString>
+            </Layer>
+        </Layers>
+        <Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background">
+            <Color r="0" g="0" b="1" a="0.5"/>
+        </Backdrop>
+        <Scripts>
+            <OnLoad>
+                NHActionBar_OnLoad();
+            </OnLoad>
+        </Scripts>
+    </Frame>
+</Ui>

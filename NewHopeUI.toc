@@ -1,6 +1,22 @@
 ## Interface: 20400
 ## Title: NewHopeUI
-## Notes: Notes about MyAddon
+## Notes: Lightweight all inclusive raid interface
 ## Version: 0.0.1
-BottomFrame\BottomFrame.lua
-BottomFrame\BottomFrame.xml
+BottomFrame\ActionBar\ActionBar.lua
+BottomFrame\ActionBar\ActionBar.xml
+BottomFrame\Chat\Chat.lua
+BottomFrame\Chat\Chat.xml
+BottomFrame\Player\Player.lua
+BottomFrame\Player\Player.xml
+BottomFrame\Stats\Stats.lua
+BottomFrame\Stats\Stats.xml
+BuffFrame\Buff\Buff.lua
+BuffFrame\Buff\Buff.xml
+RaidFrame\Raid\Raid.lua
+RaidFrame\Raid\Raid.xml
+TargetFrame\Boss\Boss.lua
+TargetFrame\Boss\Boss.xml
+TargetFrame\Mobs\Mobs.lua
+TargetFrame\Mobs\Mobs.xml
+NewHopeUI.lua
+NewHopeUI.xml

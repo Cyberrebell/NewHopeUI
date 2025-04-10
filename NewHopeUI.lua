@@ -1,9 +1,9 @@
-function BottomFrame_OnLoad()
+function NewHopeUI_OnLoad()
     DEFAULT_CHAT_FRAME:AddMessage("NewHopeUI started")
-    hide_blizzard_ui()
+    HideBlizzardUI()
 end
 
-function hide_blizzard_ui()
+function HideBlizzardUI()
     PlayerFrame:Hide()
     HidePartyFrame()
     MinimapCluster:Hide()
@@ -11,6 +11,8 @@ function hide_blizzard_ui()
     ShapeshiftBarFrame:Hide()
     --ChatFrame1:UnregisterAllEvents()
     --ChatFrame1:Hide()
+    --local myFrame = _G["ChatBox"]
+    --myFrame:SetHeight(300)
 end
 
 function HidePartyFrame()
