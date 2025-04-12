@@ -12,8 +12,8 @@
             <Color r="0" g="0" b="0" a="0.8"/>
         </Backdrop>
         <Frames>
-            <Frame inherits="NHMobs"></Frame>
-            <Frame inherits="NHBoss"></Frame>
+            <Frame name="NHMobs" inherits="NHMobs"></Frame>
+            <Frame name="NHBoss" inherits="NHBoss"></Frame>
         </Frames>
     </Frame>
     <Frame name="NHRaidFrame" parent="UIParent" frameStrata="BACKGROUND">
@@ -27,7 +27,7 @@
             <Color r="0" g="0" b="0" a="0.8"/>
         </Backdrop>
         <Frames>
-            <Frame inherits="NHRaid"></Frame>
+            <Frame name="NHRaid" inherits="NHRaid"></Frame>
         </Frames>
     </Frame>
     <Frame name="NHBuffFrame" parent="UIParent" frameStrata="BACKGROUND">
@@ -41,7 +41,7 @@
             <Color r="0" g="0" b="0" a="0.8"/>
         </Backdrop>
         <Frames>
-            <Frame inherits="NHBuff"></Frame>
+            <Frame name="NHBuff" inherits="NHBuff"></Frame>
         </Frames>
     </Frame>
     <Frame name="NHBottomFrame" parent="UIParent" frameStrata="BACKGROUND">
@@ -52,10 +52,10 @@
             <Anchor point="BOTTOM"/>
         </Anchors>
         <Frames>
-            <Frame inherits="NHChat"></Frame>
-            <Frame inherits="NHPlayer"></Frame>
-            <Frame inherits="NHActionBar"></Frame>
-            <Frame inherits="NHStats"></Frame>
+            <Frame name="NHChat" inherits="NHChat"></Frame>
+            <Frame name="NHPlayer" inherits="NHPlayer"></Frame>
+            <Frame name="NHActionBar" inherits="NHActionBar"></Frame>
+            <Frame name="NHStats" inherits="NHStats"></Frame>
         </Frames>
         <Scripts>
             <OnLoad>

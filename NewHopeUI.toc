@@ -2,6 +2,8 @@
 ## Title: NewHopeUI
 ## Notes: Lightweight all inclusive raid interface
 ## Version: 0.0.1
+BottomFrame\ActionBar\ActionButton.lua
+BottomFrame\ActionBar\ActionButton.xml
 BottomFrame\ActionBar\ActionBar.lua
 BottomFrame\ActionBar\ActionBar.xml
 BottomFrame\Chat\Chat.lua

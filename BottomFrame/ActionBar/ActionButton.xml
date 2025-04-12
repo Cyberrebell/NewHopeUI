@@ -1,0 +1,19 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="../UI.xsd">
+    <CheckButton name="NHActionButton" inherits="SecureActionButtonTemplate, ActionButtonTemplate" virtual="true">
+        <Size>
+            <AbsDimension x="40" y="40"/>
+        </Size>
+        <Attributes>
+            <Attribute name="type" value="action"/>
+            <Attribute name="action" value="0" type="number"/>
+        </Attributes>
+        <Scripts>
+            <OnUpdate>NHActionButton:OnUpdate(self, elapsed)</OnUpdate>
+            <OnDragStart>NHActionButton:OnDragStart(self, button)</OnDragStart>
+            <OnReceiveDrag>NHActionButton:OnReceiveDrag(self)</OnReceiveDrag>
+            <PostClick>NHActionButton:PostClick(self, button, down)</PostClick>
+        </Scripts>
+    </CheckButton>
+</Ui>
