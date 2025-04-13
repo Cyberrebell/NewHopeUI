@@ -1,2 +1,2 @@
-function NHMobs_OnLoad()
+function NHMobs_OnLoad(self)
 end

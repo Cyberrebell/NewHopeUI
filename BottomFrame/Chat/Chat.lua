@@ -1,2 +1,2 @@
-function NHChat_OnLoad()
+function NHChat_OnLoad(self)
 end

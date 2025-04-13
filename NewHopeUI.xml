@@ -59,7 +59,7 @@
         </Frames>
         <Scripts>
             <OnLoad>
-                NewHopeUI_OnLoad();
+                NewHopeUI_OnLoad()
             </OnLoad>
         </Scripts>
     </Frame>

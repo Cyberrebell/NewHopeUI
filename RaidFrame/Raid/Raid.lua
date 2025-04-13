@@ -1,2 +1,2 @@
-function NHRaid_OnLoad()
+function NHRaid_OnLoad(self)
 end

@@ -1,2 +1,2 @@
-function NHBuff_OnLoad()
+function NHBuff_OnLoad(self)
 end

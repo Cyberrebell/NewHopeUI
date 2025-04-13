@@ -8,128 +8,123 @@
         <Anchors>
             <Anchor point="TOP"/>
         </Anchors>
-        <Layers>
-            <Layer>
-                <FontString text="Player status" inherits="GameFontNormal">
-                    <Anchors>
-                        <Anchor point="TOP"></Anchor>
-                    </Anchors>
-                    <FontHeight>
-                        <RelValue val="8"/>
-                    </FontHeight>
-                    <Color r="1" g="1" b="1"/>
-                </FontString>
-            </Layer>
-        </Layers>
-        <Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background">
-            <Color r="0" g="0" b="0"/>
-        </Backdrop>
         <Frames>
-            <Frame>
+            <StatusBar name="NHIncomingHeal" defaultValue="1" maxValue="1" minValue="0">
                 <Size>
-                    <AbsDimension x="50" y="20"/>
+                    <AbsDimension x="100" y="20"/>
                 </Size>
                 <Anchors>
                     <Anchor point="TOPLEFT">
                         <Offset>
-                            <AbsDimension x="-50" y="0"/>
+                            <AbsDimension x="-100" y="0"/>
                         </Offset>
                     </Anchor>
                 </Anchors>
-                <Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background">
-                    <Color r="0" g="1" b="0"/>
-                </Backdrop>
                 <Layers>
                     <Layer>
-                        <FontString text="in 0.4" inherits="GameFontNormal">
+                        <FontString name="NHIncomingHealText" inherits="GameFontNormal">
                             <Anchors>
-                                <Anchor point="CENTER"></Anchor>
+                                <Anchor point="CENTER"/>
                             </Anchors>
-                            <FontHeight>
-                                <RelValue val="8"/>
-                            </FontHeight>
                             <Color r="1" g="1" b="1"/>
                         </FontString>
                     </Layer>
                 </Layers>
-            </Frame>
-            <Frame>
+                <BarTexture file="Interface/TargetingFrame/UI-StatusBar"/>
+                <BarColor r="0" g="1" b="0" a="0.7"/>
+            </StatusBar>
+            <StatusBar name="NHPlayerHealth">
                 <Size>
                     <AbsDimension x="150" y="20"/>
                 </Size>
                 <Anchors>
                     <Anchor point="TOPLEFT"/>
                 </Anchors>
-                <Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background">
-                    <Color r="1" g="0" b="0"/>
-                </Backdrop>
                 <Layers>
                     <Layer>
-                        <FontString text="8300/12000" inherits="GameFontNormal">
+                        <FontString name="NHPlayerHealthText" inherits="GameFontNormal">
                             <Anchors>
-                                <Anchor point="CENTER"></Anchor>
+                                <Anchor point="CENTER"/>
                             </Anchors>
-                            <FontHeight>
-                                <RelValue val="8"/>
-                            </FontHeight>
                             <Color r="1" g="1" b="1"/>
                         </FontString>
                     </Layer>
                 </Layers>
-            </Frame>
-            <Frame>
+                <Backdrop bgFile="Interface/Tooltips/UI-Tooltip-Background">
+                    <Color r="0" g="0" b="0"/>
+                </Backdrop>
+                <BarTexture file="Interface/TargetingFrame/UI-StatusBar"/>
+                <BarColor r="1" g="0" b="0"/>
+            </StatusBar>
+            <StatusBar name="NHPlayerPower">
                 <Size>
                     <AbsDimension x="150" y="20"/>
                 </Size>
                 <Anchors>
                     <Anchor point="TOPRIGHT"/>
                 </Anchors>
-                <Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background">
-                    <Color r="0" g="0" b="1"/>
-                </Backdrop>
                 <Layers>
                     <Layer>
-                        <FontString text="2300/12000" inherits="GameFontNormal">
+                        <FontString name="NHPlayerPowerText" inherits="GameFontNormal">
                             <Anchors>
-                                <Anchor point="CENTER"></Anchor>
+                                <Anchor point="CENTER"/>
                             </Anchors>
-                            <FontHeight>
-                                <RelValue val="8"/>
-                            </FontHeight>
                             <Color r="1" g="1" b="1"/>
                         </FontString>
                     </Layer>
                 </Layers>
-            </Frame>
-            <Frame>
+                <Backdrop bgFile="Interface/Tooltips/UI-Tooltip-Background">
+                    <Color r="0" g="0" b="0"/>
+                </Backdrop>
+                <BarTexture file="Interface/TargetingFrame/UI-StatusBar"/>
+                <BarColor r="0" g="0" b="1"/>
+            </StatusBar>
+            <StatusBar name="NHPlayerCastbar">
                 <Size>
                     <AbsDimension x="300" y="20"/>
                 </Size>
                 <Anchors>
                     <Anchor point="BOTTOM"/>
                 </Anchors>
-                <Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background">
-                    <Color r="1" g="1" b="0"/>
-                </Backdrop>
                 <Layers>
                     <Layer>
-                        <FontString text="Schattenblitz" inherits="GameFontNormal">
+                        <FontString name="NHPlayerCastbarText" inherits="GameFontNormal">
                             <Anchors>
-                                <Anchor point="CENTER"></Anchor>
+                                <Anchor point="CENTER"/>
                             </Anchors>
-                            <FontHeight>
-                                <RelValue val="8"/>
-                            </FontHeight>
                             <Color r="1" g="1" b="1"/>
                         </FontString>
                     </Layer>
                 </Layers>
-            </Frame>
+                <Backdrop bgFile="Interface/Tooltips/UI-Tooltip-Background">
+                    <Color r="0" g="0" b="0"/>
+                </Backdrop>
+                <Frames>
+                    <Frame alpha="0.5">
+                        <Size>
+                            <AbsDimension x="20" y="20"/>
+                        </Size>
+                        <Anchors>
+                            <Anchor point="LEFT"/>
+                        </Anchors>
+                        <Layers>
+                            <Layer>
+                                <Texture name="NHPlayerCastbarIcon" file="Interface/Tooltips/UI-Tooltip-Background"/>
+                            </Layer>
+                        </Layers>
+                    </Frame>
+                </Frames>
+                <BarTexture file="Interface/TargetingFrame/UI-StatusBar"/>
+                <BarColor r="1" g="0.7" b="0"/>
+            </StatusBar>
         </Frames>
         <Scripts>
             <OnLoad>
-                NHPlayer_OnLoad();
+                NHPlayer_OnLoad(self)
             </OnLoad>
+            <OnUpdate>
+                NHPlayer_OnUpdate(self, elapsed)
+            </OnUpdate>
         </Scripts>
     </Frame>
 </Ui>

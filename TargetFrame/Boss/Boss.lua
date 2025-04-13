@@ -1,2 +1,2 @@
-function NHBoss_OnLoad()
+function NHBoss_OnLoad(self)
 end

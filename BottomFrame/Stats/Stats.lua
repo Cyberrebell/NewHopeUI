@@ -1,2 +1,2 @@
-function NHStats_OnLoad()
+function NHStats_OnLoad(self)
 end
