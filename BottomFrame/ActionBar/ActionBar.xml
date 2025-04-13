@@ -3,10 +3,14 @@
     xsi:schemaLocation="../UI.xsd">
     <Frame name="NHActionBar" virtual="true">
         <Size>
-            <AbsDimension x="600" y="160"/>
+            <AbsDimension x="516" y="200"/>
         </Size>
         <Anchors>
-            <Anchor point="BOTTOM"/>
+            <Anchor point="BOTTOM">
+                <Offset>
+                    <AbsDimension x="-42" y="0"/>
+                </Offset>
+            </Anchor>
         </Anchors>
         <Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background">
             <Color r="0" g="0" b="0" a="0.5"/>

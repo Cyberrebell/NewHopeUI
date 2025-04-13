@@ -3,7 +3,7 @@
     xsi:schemaLocation="../UI.xsd">
     <Frame name="NHStats" virtual="true">
         <Size>
-            <AbsDimension x="460" y="200"/>
+            <AbsDimension x="544" y="200"/>
         </Size>
         <Anchors>
             <Anchor point="RIGHT"/>

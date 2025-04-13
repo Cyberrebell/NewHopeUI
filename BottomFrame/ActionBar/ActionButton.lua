@@ -7,11 +7,13 @@ function NHActionButton:new(slot, parentFrame)
     button:SetScale(0.77)
     button:SetAttribute("action", slot)
     button.slot = slot
+    --DEFAULT_CHAT_FRAME:AddMessage(slot)
     return button
 end
 
 function NHActionButton:OnUpdate(self, elapsed)
     NHActionButton:UpdateIcon(self)
+    NHActionButton:UpdateState(self)
 end
 
 function NHActionButton:OnDragStart(self, button)
