@@ -2,6 +2,8 @@
 ## Title: NewHopeUI
 ## Notes: Lightweight all inclusive raid interface
 ## Version: 0.0.1
+CombatLog\EnemyDB.lua
+CombatLog\CombatLog.lua
 BottomFrame\ActionBar\ActionButton.lua
 BottomFrame\ActionBar\ActionButton.xml
 BottomFrame\ActionBar\ActionBar.lua
@@ -16,9 +18,9 @@ BuffFrame\Buff\Buff.lua
 BuffFrame\Buff\Buff.xml
 RaidFrame\Raid\Raid.lua
 RaidFrame\Raid\Raid.xml
-TargetFrame\Boss\Boss.lua
-TargetFrame\Boss\Boss.xml
-TargetFrame\Mobs\Mobs.lua
-TargetFrame\Mobs\Mobs.xml
+TargetFrame\TargetBar.lua
+TargetFrame\TargetBar.xml
+TargetFrame\TargetFrame.lua
+TargetFrame\TargetFrame.xml
 NewHopeUI.lua
 NewHopeUI.xml

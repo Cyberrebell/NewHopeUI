@@ -1,0 +1,49 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="../UI.xsd">
+    <StatusBar name="NHTargetBar" virtual="true">
+        <Size>
+            <AbsDimension x="800" y="16"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOP"/>
+        </Anchors>
+        <Layers>
+            <Layer>
+                <FontString name="$parentText" inherits="GameFontNormal">
+                    <Anchors>
+                        <Anchor point="CENTER"/>
+                    </Anchors>
+                    <Color r="1" g="1" b="1"/>
+                </FontString>
+            </Layer>
+        </Layers>
+        <Backdrop bgFile="Interface/Tooltips/UI-Tooltip-Background">
+            <Color r="0" g="0" b="0"/>
+        </Backdrop>
+        <Frames>
+            <CheckButton name="$parentButton" inherits="SecureActionButtonTemplate, ActionButtonTemplate">
+                <Size>
+                    <AbsDimension x="800" y="16"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="CENTER"/>
+                </Anchors>
+                <Attributes>
+                    <Attribute name="type" value="action"/>
+                    <Attribute name="action" value="0" type="number"/>
+                </Attributes>
+                <Scripts>
+                    <PostClick>NHTargetBar:PostClick(self, button, down)</PostClick>
+                </Scripts>
+                <NormalTexture file=""/>
+            </CheckButton>
+        </Frames>
+        <Scripts>
+            <OnLoad>NHTargetBar_OnLoad(self)</OnLoad>
+            <OnUpdate>NHTargetBar:OnUpdate(self, elapsed)</OnUpdate>
+        </Scripts>
+        <BarTexture file="Interface/TargetingFrame/UI-StatusBar"/>
+        <BarColor r="1" g="0" b="0"/>
+    </StatusBar>
+</Ui>

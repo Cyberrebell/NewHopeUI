@@ -1,0 +1,57 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="../UI.xsd">
+    <Frame name="NHTargetFrame" parent="UIParent" frameStrata="BACKGROUND" virtual="true">
+        <Size>
+            <AbsDimension x="1200" y="80"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOPLEFT"/>
+        </Anchors>
+        <Frames>
+            <Frame name="NHBoss">
+                <Size>
+                    <AbsDimension x="800" y="80"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPRIGHT"/>
+                </Anchors>
+                <Frames>
+                    <StatusBar name="NHBoss1" inherits="NHTargetBar"/>
+                    <StatusBar name="NHBoss2" inherits="NHTargetBar"/>
+                    <StatusBar name="NHBoss3" inherits="NHTargetBar"/>
+                    <StatusBar name="NHBoss4" inherits="NHTargetBar"/>
+                </Frames>
+            </Frame>
+            <Frame name="NHMobs">
+                <Size>
+                    <AbsDimension x="400" y="80"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="LEFT"/>
+                </Anchors>
+                <Layers>
+                    <Layer>
+                        <FontString text="Mobs-Bar" inherits="GameFontNormal">
+                            <Anchors>
+                                <Anchor point="TOP"></Anchor>
+                            </Anchors>
+                            <FontHeight>
+                                <RelValue val="8"/>
+                            </FontHeight>
+                            <Color r="1" g="1" b="1"/>
+                        </FontString>
+                    </Layer>
+                </Layers>
+                <Backdrop bgFile="Interface/Tooltips/UI-Tooltip-Background">
+                    <Color r="0" g="0" b="1" a="0.5"/>
+                </Backdrop>
+            </Frame>
+        </Frames>
+        <Scripts>
+            <OnLoad>
+                NHTargetFrame_OnLoad(self)
+            </OnLoad>
+        </Scripts>
+    </Frame>
+</Ui>

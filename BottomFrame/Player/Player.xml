@@ -109,12 +109,12 @@
                         </Anchors>
                         <Layers>
                             <Layer>
-                                <Texture name="NHPlayerCastbarIcon" file="Interface/Tooltips/UI-Tooltip-Background"/>
+                                <Texture name="NHPlayerCastbarIcon"/>
                             </Layer>
                         </Layers>
                     </Frame>
                 </Frames>
-                <BarTexture file="Interface/TargetingFrame/UI-StatusBar"/>
+                <BarTexture file="Interface/PaperDollInfoFrame/UI-Character-Skills-Bar"/>
                 <BarColor r="1" g="0.7" b="0"/>
             </StatusBar>
         </Frames>
