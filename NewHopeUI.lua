@@ -10,6 +10,8 @@ function HideBlizzardUI()
     MainMenuBar:Hide()
     ShapeshiftBarFrame:Hide()
     BuffFrame:Hide()
+    CastingBarFrame:UnregisterAllEvents()
+    CastingBarFrame:Hide()
     --ChatFrame1:UnregisterAllEvents()
     --ChatFrame1:Hide()
 end

@@ -49,7 +49,7 @@
                 self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
             </OnLoad>
             <OnEvent>
-                NHCombatLog:OnEvent(...)
+                NHCombatLog:OnCombatLog(...)
             </OnEvent>
         </Scripts>
     </Frame>

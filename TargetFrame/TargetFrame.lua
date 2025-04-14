@@ -23,12 +23,14 @@ local function initTargetFrames()
     for i = 0,3 do
         local bar = _G["NHBoss"..(i + 1)]
         bar:SetPoint("TOP", 0, i * -16)
+        bar:Hide()
     end
     for i = 0,19 do
         local bar = _G["NHMob"..(i + 1)]
         bar:SetWidthRec(100)
         bar:SetPoint("TOP", 0, math.floor(i / 4) * -16)
         NHTargetBar:SetSmallMode(bar, true)
+        bar:Hide()
     end
 end
 
@@ -38,6 +40,9 @@ function NHTargetFrame_OnLoad(self)
         NHTargetFrame:updateTargets()
     end)
     table.insert(NHEnemyDBEvents.onEnemyRemoved, function (GUID)
+        NHTargetFrame:updateTargets()
+    end)
+    table.insert(NHEnemyDBEvents.onEnemiesUpdated, function ()
         NHTargetFrame:updateTargets()
     end)
 end

@@ -1,7 +1,8 @@
 NHEnemyDB = {}
 NHEnemyDBEvents = {
     onEnemyAdded = {},
-    onEnemyRemoved = {}
+    onEnemyRemoved = {},
+    onEnemiesUpdated = {}
 }
 
 local function sort_by_max_hp()
@@ -27,5 +28,25 @@ function NHEnemyDB_removeUnit(GUID)
         for _, value in ipairs(NHEnemyDBEvents.onEnemyRemoved) do
             value(GUID) -- emit onEnemyRemoved Event for all listeners
         end
+    end
+end
+
+local function inspectUnit(reference)
+    local GUID = UnitGUID(reference)
+    if not GUID then return end
+    --if not UnitIsEnemy("player", GUID) then return end
+    if not NHEnemyDB[GUID] then NHEnemyDB_registerUnit(GUID, UnitName(reference), COMBATLOG_OBJECT_REACTION_HOSTILE) end
+    NHEnemyDB[GUID].hp.value = UnitHealth(reference)
+    NHEnemyDB[GUID].hp.max = UnitHealthMax(reference)
+    local referenceTarget = reference.."target"
+    if string.len(referenceTarget) < 22 then
+        inspectUnit(referenceTarget)
+    end
+end
+
+function NHEnemyDB_inspectUnit(reference)
+    inspectUnit(reference)
+    for _, value in ipairs(NHEnemyDBEvents.onEnemiesUpdated) do
+        value() -- emit onEnemiesUpdated Event for all listeners
     end
 end

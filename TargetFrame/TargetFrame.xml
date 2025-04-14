@@ -22,6 +22,14 @@
                     <StatusBar name="NHBoss3" inherits="NHTargetBar"/>
                     <StatusBar name="NHBoss4" inherits="NHTargetBar"/>
                 </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
+                    </OnLoad>
+                    <OnEvent>
+                        NHCombatLog:OnPlayerMouseoverChanged()
+                    </OnEvent>
+                </Scripts>
             </Frame>
             <Frame name="NHMobs">
                 <Size>
@@ -117,7 +125,11 @@
         <Scripts>
             <OnLoad>
                 NHTargetFrame_OnLoad(self)
+                self:RegisterEvent("UNIT_TARGET")
             </OnLoad>
+            <OnEvent>
+                NHCombatLog:OnUnitTargetChanged(...)
+            </OnEvent>
         </Scripts>
     </Frame>
 </Ui>
