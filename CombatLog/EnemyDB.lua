@@ -1,6 +1,7 @@
 NHEnemyDB = {}
 NHEnemyDBEvents = {
-    onEnemyAdded = {}
+    onEnemyAdded = {},
+    onEnemyRemoved = {}
 }
 
 local function sort_by_max_hp()
@@ -14,8 +15,17 @@ function NHEnemyDB_registerUnit(GUID, name, flags)
     if bit.band(COMBATLOG_OBJECT_REACTION_HOSTILE, flags) ~= 0 then
         NHEnemyDB[GUID] = {guid = GUID, name = name, hp = {value = 1, max = 1}}
         sort_by_max_hp()
-        for index, value in ipairs(NHEnemyDBEvents.onEnemyAdded) do
+        for _, value in ipairs(NHEnemyDBEvents.onEnemyAdded) do
             value(GUID) -- emit onEnemyAdded Event for all listeners
+        end
+    end
+end
+
+function NHEnemyDB_removeUnit(GUID)
+    if NHEnemyDB[GUID] then
+        table.remove(NHEnemyDB, GUID)
+        for _, value in ipairs(NHEnemyDBEvents.onEnemyRemoved) do
+            value(GUID) -- emit onEnemyRemoved Event for all listeners
         end
     end
 end

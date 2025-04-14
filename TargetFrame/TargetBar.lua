@@ -18,8 +18,6 @@ function NHTargetBar:OnUpdate(frame, elapsed)
         frame.text:SetText(name..hp.."/"..maxHP..(" (%.1f"):format(100 * hp / maxHP).."%)")
         frame:SetMinMaxValues(0, maxHP)
         frame:SetValue(hp)
-    else
-        frame:Hide()
     end
 end
 
@@ -39,8 +37,12 @@ function NHTargetBar_OnLoad(frame)
     end
     function frame:SetUnit(unit)
         frame.target = unit
-        local button = _G[frame:GetName().."Button"]
-        button.targetName = frame.target.name
-        frame:Show()
+        if frame.target then
+            local button = _G[frame:GetName().."Button"]
+            button.targetName = frame.target.name
+            frame:Show()
+        else
+            frame:Hide()
+        end
     end
 end

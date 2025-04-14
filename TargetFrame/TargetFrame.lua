@@ -5,10 +5,17 @@ function NHTargetFrame:updateTargets()
     for GUID, unit in pairs(NHEnemyDB) do
         if i < 5 then
             _G["NHBoss"..i]:SetUnit(unit)
-        elseif i < 21 then
+        elseif i < 25 then
             _G["NHMob"..(i - 4)]:SetUnit(unit)
         end
         i = i + 1
+    end
+    for k = i,24 do
+        if k < 5 then
+            _G["NHBoss"..k]:SetUnit(nil)
+        else
+            _G["NHMob"..(k - 4)]:SetUnit(nil)
+        end
     end
 end
 
@@ -28,6 +35,9 @@ end
 function NHTargetFrame_OnLoad(self)
     initTargetFrames()
     table.insert(NHEnemyDBEvents.onEnemyAdded, function (GUID)
+        NHTargetFrame:updateTargets()
+    end)
+    table.insert(NHEnemyDBEvents.onEnemyRemoved, function (GUID)
         NHTargetFrame:updateTargets()
     end)
 end
