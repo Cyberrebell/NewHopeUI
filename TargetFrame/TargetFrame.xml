@@ -11,7 +11,7 @@
         <Frames>
             <Frame name="NHBoss">
                 <Size>
-                    <AbsDimension x="800" y="80"/>
+                    <AbsDimension x="800" y="64"/>
                 </Size>
                 <Anchors>
                     <Anchor point="TOPRIGHT"/>
@@ -28,24 +28,90 @@
                     <AbsDimension x="400" y="80"/>
                 </Size>
                 <Anchors>
-                    <Anchor point="LEFT"/>
+                    <Anchor point="TOPLEFT"/>
                 </Anchors>
-                <Layers>
-                    <Layer>
-                        <FontString text="Mobs-Bar" inherits="GameFontNormal">
-                            <Anchors>
-                                <Anchor point="TOP"></Anchor>
-                            </Anchors>
-                            <FontHeight>
-                                <RelValue val="8"/>
-                            </FontHeight>
-                            <Color r="1" g="1" b="1"/>
-                        </FontString>
-                    </Layer>
-                </Layers>
-                <Backdrop bgFile="Interface/Tooltips/UI-Tooltip-Background">
-                    <Color r="0" g="0" b="1" a="0.5"/>
-                </Backdrop>
+                <Frames>
+                    <Frame>
+                        <Size>
+                            <AbsDimension x="200" y="80"/>
+                        </Size>
+                        <Anchors>
+                            <Anchor point="LEFT"/>
+                        </Anchors>
+                        <Frames>
+                            <Frame>
+                                <Size>
+                                    <AbsDimension x="100" y="80"/>
+                                </Size>
+                                <Anchors>
+                                    <Anchor point="LEFT"/>
+                                </Anchors>
+                                <Frames>
+                                    <StatusBar name="NHMob1" inherits="NHTargetBar"/>
+                                    <StatusBar name="NHMob5" inherits="NHTargetBar"/>
+                                    <StatusBar name="NHMob9" inherits="NHTargetBar"/>
+                                    <StatusBar name="NHMob13" inherits="NHTargetBar"/>
+                                    <StatusBar name="NHMob17" inherits="NHTargetBar"/>
+                                </Frames>
+                            </Frame>
+                            <Frame>
+                                <Size>
+                                    <AbsDimension x="100" y="80"/>
+                                </Size>
+                                <Anchors>
+                                    <Anchor point="RIGHT"/>
+                                </Anchors>
+                                <Frames>
+                                    <StatusBar name="NHMob2" inherits="NHTargetBar"/>
+                                    <StatusBar name="NHMob6" inherits="NHTargetBar"/>
+                                    <StatusBar name="NHMob10" inherits="NHTargetBar"/>
+                                    <StatusBar name="NHMob14" inherits="NHTargetBar"/>
+                                    <StatusBar name="NHMob18" inherits="NHTargetBar"/>
+                                </Frames>
+                            </Frame>
+                        </Frames>
+                    </Frame>
+                    <Frame>
+                        <Size>
+                            <AbsDimension x="200" y="80"/>
+                        </Size>
+                        <Anchors>
+                            <Anchor point="RIGHT"/>
+                        </Anchors>
+                        <Frames>
+                            <Frame>
+                                <Size>
+                                    <AbsDimension x="100" y="80"/>
+                                </Size>
+                                <Anchors>
+                                    <Anchor point="LEFT"/>
+                                </Anchors>
+                                <Frames>
+                                    <StatusBar name="NHMob3" inherits="NHTargetBar"/>
+                                    <StatusBar name="NHMob7" inherits="NHTargetBar"/>
+                                    <StatusBar name="NHMob11" inherits="NHTargetBar"/>
+                                    <StatusBar name="NHMob15" inherits="NHTargetBar"/>
+                                    <StatusBar name="NHMob19" inherits="NHTargetBar"/>
+                                </Frames>
+                            </Frame>
+                            <Frame>
+                                <Size>
+                                    <AbsDimension x="100" y="80"/>
+                                </Size>
+                                <Anchors>
+                                    <Anchor point="RIGHT"/>
+                                </Anchors>
+                                <Frames>
+                                    <StatusBar name="NHMob4" inherits="NHTargetBar"/>
+                                    <StatusBar name="NHMob8" inherits="NHTargetBar"/>
+                                    <StatusBar name="NHMob12" inherits="NHTargetBar"/>
+                                    <StatusBar name="NHMob16" inherits="NHTargetBar"/>
+                                    <StatusBar name="NHMob20" inherits="NHTargetBar"/>
+                                </Frames>
+                            </Frame>
+                        </Frames>
+                    </Frame>
+                </Frames>
             </Frame>
         </Frames>
         <Scripts>

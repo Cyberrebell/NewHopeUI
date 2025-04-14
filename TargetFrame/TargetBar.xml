@@ -14,6 +14,9 @@
                     <Anchors>
                         <Anchor point="CENTER"/>
                     </Anchors>
+                    <FontHeight>
+                        <AbsValue val="12"/>
+                    </FontHeight>
                     <Color r="1" g="1" b="1"/>
                 </FontString>
             </Layer>
