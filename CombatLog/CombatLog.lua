@@ -10,5 +10,6 @@ function NHCombatLog:OnPlayerMouseoverChanged()
 end
 
 function NHCombatLog:OnUnitTargetChanged(reference)
-    NHEnemyDB_inspectUnit(reference)
+    NHEnemyDB_inspectUnit(reference.."target")
+    FocusHeat_update()
 end

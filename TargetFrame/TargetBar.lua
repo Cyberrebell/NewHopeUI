@@ -18,6 +18,7 @@ function NHTargetBar:OnUpdate(frame, elapsed)
         frame.text:SetText(name..hp.."/"..maxHP..(" (%.1f"):format(100 * hp / maxHP).."%)")
         frame:SetMinMaxValues(0, maxHP)
         frame:SetValue(hp)
+        frame:SetStatusBarColor(1, math.min(0.8, frame.target.heat / 8), 0)
     end
 end
 
