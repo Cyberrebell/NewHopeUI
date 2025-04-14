@@ -1,28 +1,28 @@
 NHTargetBar = {}
 
-function NHTargetBar:PostClick(self, button, down)
-    SendChatMessage(self.targetName, "SAY")
-    self:SetChecked(0)
+function NHTargetBar:PostClick(frame, button, down)
+    SendChatMessage(frame.target.name, "SAY")
+    frame:SetChecked(0)
 end
 
-function NHTargetBar:OnUpdate(self, elapsed)
-    if self.targetName then
-        local hp = UnitHealth(self.targetName)
-        local maxHP = UnitHealthMax(self.targetName)
-        self.text:SetText(self.targetName.." "..hp.." / "..maxHP..(" (%.1f"):format(100 * hp / maxHP).."%)")
-        self:SetMinMaxValues(0, maxHP)
-        self:SetValue(hp)
+function NHTargetBar:OnUpdate(frame, elapsed)
+    if frame.target then
+        local hp = frame.target.hp.value
+        local maxHP = frame.target.hp.max
+        frame.text:SetText(frame.target.name.." "..hp.." / "..maxHP..(" (%.1f"):format(100 * hp / maxHP).."%)")
+        frame:SetMinMaxValues(0, maxHP)
+        frame:SetValue(hp)
     else
-        self:Hide()
+        frame:Hide()
     end
 end
 
-function NHTargetBar_OnLoad(self)
-    self.text = _G[self:GetName().."Text"]
-    function self:SetUnit(unit)
-        local button = _G[self:GetName().."Button"]
-        button.targetName = GetUnitName(unit)
-        self.targetName = button.targetName
-        self:Show()
+function NHTargetBar_OnLoad(frame)
+    frame.text = _G[frame:GetName().."Text"]
+    function frame:SetUnit(unit)
+        frame.target = unit
+        local button = _G[frame:GetName().."Button"]
+        button.targetName = frame.target.name
+        frame:Show()
     end
 end
