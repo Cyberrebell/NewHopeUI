@@ -30,3 +30,29 @@ function HidePartyFrame()
         getglobal("PartyMemberFrame"..i.."ManaBar"):UnregisterAllEvents()
     end
 end
+
+function NHTable_erase(tab, value)
+    for key, val in pairs(tab) do
+        if val == value then
+            table.remove(tab, key);
+            return true
+        end
+    end
+    return false
+end
+
+function NHTable_count(tab)
+    local n = 0
+    for _ in pairs(tab) do
+        n = n + 1
+    end
+    return n
+end
+
+function NHTable_print(tab)
+    local result = "{"
+    for key, val in pairs(tab) do
+        result = result..key..":"..val..","
+    end
+    return DEFAULT_CHAT_FRAME:AddMessage(result.."}")
+end

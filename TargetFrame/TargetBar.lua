@@ -1,7 +1,6 @@
 NHTargetBar = {}
 
 function NHTargetBar:PostClick(frame, button, down)
-    SendChatMessage(frame.targetName, "SAY")
     frame:SetChecked(0)
 end
 
@@ -40,6 +39,7 @@ function NHTargetBar_OnLoad(frame)
         frame.target = unit
         if frame.target then
             local button = _G[frame:GetName().."Button"]
+            button:SetAttribute("unit", unit.references[1])
             button.targetName = frame.target.name
             frame:Show()
         else

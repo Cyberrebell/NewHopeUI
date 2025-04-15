@@ -1,29 +1,53 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="../UI.xsd">
-    <Frame name="NHRaid" virtual="true">
+    <Frame name="NHRaid" frameStrata="BACKGROUND" virtual="true">
         <Size>
-            <AbsDimension x="200" y="400"/>
+            <AbsDimension x="200" y="200"/>
         </Size>
         <Anchors>
-            <Anchor point="CENTER"/>
+            <Anchor point="LEFT"/>
         </Anchors>
-        <Layers>
-            <Layer>
-                <FontString text="Raid players" inherits="GameFontNormal">
-                    <Anchors>
-                        <Anchor point="TOP"></Anchor>
-                    </Anchors>
-                    <FontHeight>
-                        <RelValue val="8"/>
-                    </FontHeight>
-                    <Color r="1" g="1" b="1"/>
-                </FontString>
-            </Layer>
-        </Layers>
-        <Backdrop bgFile="Interface/Tooltips/UI-Tooltip-Background">
-            <Color r="0" g="0" b="0" a="1"/>
-        </Backdrop>
+        <Frames>
+            <Frame>
+                <Size>
+                    <AbsDimension x="50" y="200"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="LEFT"/>
+                </Anchors>
+                <Frames>
+                    <Frame name="NHRaid1" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid2" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid3" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid4" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid5" inherits="NHRaidMember"/>
+                    <PlayerModel>
+                        <Size>
+                            <AbsDimension x="50" y="50"/>
+                        </Size>
+                        <Anchors>
+                            <Anchor point="BOTTOMLEFT"/>
+                        </Anchors>
+                        <Backdrop bgFile="Interface/Tooltips/UI-Tooltip-Background">
+                            <Color r="0" g="0" b="0" a="1"/>
+                        </Backdrop>
+                        <Layers>
+                            <Layer>
+                                <Texture file="Interface/Glues/CharacterCreate/UI-CharacterCreate-Classes">
+                                    <Size>
+                                        <AbsDimension x="40" y="40"/>
+                                    </Size>
+                                    <Anchors>
+                                        <Anchor point="CENTER"></Anchor>
+                                    </Anchors>
+                                </Texture>
+                            </Layer>
+                        </Layers>
+                    </PlayerModel>
+                </Frames>
+            </Frame>
+        </Frames>
         <Scripts>
             <OnLoad>
                 NHRaid_OnLoad(self)

@@ -1,0 +1,15 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="../UI.xsd">
+    <Frame name="NHRaidMember" virtual="true">
+        <Size>
+            <AbsDimension x="80" y="50"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOP"/>
+        </Anchors>
+        <Backdrop bgFile="Interface/Tooltips/UI-Tooltip-Background">
+            <Color r="0" g="1" b="0" a="1"/>
+        </Backdrop>
+    </Frame>
+</Ui>

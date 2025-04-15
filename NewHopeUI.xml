@@ -2,20 +2,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="../UI.xsd">
     <Frame name="NHTargetFrame" inherits="NHTargetFrame"/>
-    <Frame name="NHRaidFrame" parent="UIParent" frameStrata="BACKGROUND">
-        <Size>
-            <AbsDimension x="200" y="400"/>
-        </Size>
-        <Anchors>
-            <Anchor point="LEFT"/>
-        </Anchors>
-        <Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background">
-            <Color r="0" g="0" b="0" a="0.8"/>
-        </Backdrop>
-        <Frames>
-            <Frame name="NHRaid" inherits="NHRaid"></Frame>
-        </Frames>
-    </Frame>
+    <Frame name="NHRaidFrame" inherits="NHRaid"/>
     <Frame name="NHBuffFrame" parent="UIParent" frameStrata="BACKGROUND">
         <Size>
             <AbsDimension x="100" y="300"/>

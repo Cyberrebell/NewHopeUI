@@ -17,6 +17,8 @@ BottomFrame\Stats\Stats.lua
 BottomFrame\Stats\Stats.xml
 BuffFrame\Buff\Buff.lua
 BuffFrame\Buff\Buff.xml
+RaidFrame\Raid\RaidMember.lua
+RaidFrame\Raid\RaidMember.xml
 RaidFrame\Raid\Raid.lua
 RaidFrame\Raid\Raid.xml
 TargetFrame\TargetBar.lua
