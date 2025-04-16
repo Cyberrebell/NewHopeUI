@@ -34,6 +34,7 @@ function NHTargetBar_OnLoad(frame)
     function frame:SetWidthRec(width)
         frame:SetWidth(width)
         _G[frame:GetName().."Button"]:SetWidth(width)
+        _G[frame:GetName().."ThreatBar"]:SetWidth(width)
     end
     function frame:SetUnit(unit)
         frame.target = unit

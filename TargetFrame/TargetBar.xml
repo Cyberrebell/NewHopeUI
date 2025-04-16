@@ -41,6 +41,16 @@
                 </Scripts>
                 <NormalTexture file=""/>
             </CheckButton>
+            <StatusBar name="$parentThreatBar" minValue="0" maxValue="100" defaultValue="0">
+                <Size>
+                    <AbsDimension x="800" y="2"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="BOTTOM"/>
+                </Anchors>
+                <BarTexture file="Interface/PaperDollInfoFrame/UI-Character-Skills-Bar"/>
+                <BarColor r="1" g="1" b="0"/>
+            </StatusBar>
         </Frames>
         <Scripts>
             <OnLoad>NHTargetBar_OnLoad(self)</OnLoad>

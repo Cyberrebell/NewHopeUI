@@ -14,7 +14,7 @@ end
 function NHEnemyDB_registerUnit(GUID, name, flags)
     if NHEnemyDB[GUID] then return end
     if bit.band(COMBATLOG_OBJECT_REACTION_HOSTILE, flags) ~= 0 then
-        NHEnemyDB[GUID] = {guid = GUID, name = name, hp = {value = 1, max = 1}, heat = 0, references = {}, threat = 0}
+        NHEnemyDB[GUID] = {guid = GUID, name = name, hp = {value = 1, max = 1}, heat = 0, references = {}, threat = {}}
         sort_by_max_hp()
         for _, value in ipairs(NHEnemyDBEvents.onEnemyAdded) do
             value(GUID) -- emit onEnemyAdded Event for all listeners
@@ -68,9 +68,7 @@ function NHEnemyDB_inspectUnit(reference)
 end
 
 function NHEnemyDB_truncate()
-    for GUID, _ in pairs(NHEnemyDB) do
-        NHEnemyDB[GUID] = nil
-    end
+    NHTable_truncate(NHEnemyDB)
     for _, value in ipairs(NHEnemyDBEvents.onEnemiesUpdated) do
         value() -- emit onEnemiesUpdated Event for all listeners
     end

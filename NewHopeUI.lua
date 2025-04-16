@@ -56,6 +56,12 @@ function NHTable_count(tab)
     return n
 end
 
+function NHTable_truncate(tab)
+    for key, _ in pairs(tab) do
+        tab[key] = nil
+    end
+end
+
 function NHTable_print(tab)
     local result = "{"
     for key, val in pairs(tab) do
