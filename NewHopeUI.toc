@@ -5,6 +5,7 @@
 CombatLog\EnemyDB.lua
 CombatLog\FocusHeat.lua
 CombatLog\CombatLog.lua
+CombatLog\MessageHandler.lua
 BottomFrame\ActionBar\ActionButton.lua
 BottomFrame\ActionBar\ActionButton.xml
 BottomFrame\ActionBar\ActionBar.lua

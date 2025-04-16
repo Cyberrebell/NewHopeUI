@@ -78,6 +78,14 @@
                                 </Frames>
                             </Frame>
                         </Frames>
+                        <Scripts>
+                            <OnLoad>
+                                self:RegisterEvent("PLAYER_REGEN_ENABLED")
+                            </OnLoad>
+                            <OnEvent>
+                                NHCombatLog:OnLeaveCombat()
+                            </OnEvent>
+                        </Scripts>
                     </Frame>
                     <Frame>
                         <Size>
@@ -118,8 +126,24 @@
                                 </Frames>
                             </Frame>
                         </Frames>
+                        <Scripts>
+                            <OnLoad>
+                                self:RegisterEvent("PLAYER_REGEN_DISABLED")
+                            </OnLoad>
+                            <OnEvent>
+                                NHCombatLog:OnEnterCombat()
+                            </OnEvent>
+                        </Scripts>
                     </Frame>
                 </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:RegisterEvent("CHAT_MSG_ADDON")
+                    </OnLoad>
+                    <OnEvent>
+                        NHMessageHandler:OnAddonMessageReceived(...)
+                    </OnEvent>
+                </Scripts>
             </Frame>
         </Frames>
         <Scripts>

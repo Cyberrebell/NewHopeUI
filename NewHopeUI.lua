@@ -41,6 +41,13 @@ function NHTable_erase(tab, value)
     return false
 end
 
+function NHTable_first(tab)
+    for _, val in pairs(tab) do
+        return val
+    end
+    return nil
+end
+
 function NHTable_count(tab)
     local n = 0
     for _ in pairs(tab) do
@@ -54,5 +61,5 @@ function NHTable_print(tab)
     for key, val in pairs(tab) do
         result = result..key..":"..val..","
     end
-    return DEFAULT_CHAT_FRAME:AddMessage(result.."}")
+    DEFAULT_CHAT_FRAME:AddMessage(result.."}")
 end

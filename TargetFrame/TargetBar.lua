@@ -14,7 +14,7 @@ function NHTargetBar:OnUpdate(frame, elapsed)
         else
             name = name.." "
         end
-        frame.text:SetText(name..hp.."/"..maxHP..(" (%.1f"):format(100 * hp / maxHP).."%)")
+        frame.text:SetText(name..hp.."/"..maxHP..(" (%.1f"):format(100 * hp / maxHP).."%) "..frame.target.threat)
         frame:SetMinMaxValues(0, maxHP)
         frame:SetValue(hp)
         frame:SetStatusBarColor(1, math.min(0.8, frame.target.heat / 8), 0)
@@ -39,10 +39,12 @@ function NHTargetBar_OnLoad(frame)
         frame.target = unit
         if frame.target then
             local button = _G[frame:GetName().."Button"]
-            button:SetAttribute("unit", unit.references[1])
             button.targetName = frame.target.name
-            frame:Show()
-        else
+            if not NHIsInfight then
+                button:SetAttribute("unit", NHTable_first(unit.references))
+                frame:Show()
+            end
+        elseif not NHIsInfight then
             frame:Hide()
         end
     end

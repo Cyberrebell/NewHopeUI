@@ -1,4 +1,5 @@
 NHCombatLog = {}
+NHIsInfight = false
 
 function NHCombatLog:OnCombatLog(timestamp, event, sourceGUID, sourceName, sourceFlags, destGUID, destName, destFlags, spellID, spellName, spellSchool, value, damageType)
     NHEnemyDB_registerUnit(sourceGUID, sourceName, sourceFlags)
@@ -12,4 +13,14 @@ end
 function NHCombatLog:OnUnitTargetChanged(reference)
     NHEnemyDB_inspectUnit(reference.."target")
     FocusHeat_update()
+end
+
+function NHCombatLog:OnEnterCombat()
+    NHIsInfight = true
+    NHMessageHandler:EnableThreatMessages()
+end
+
+function NHCombatLog:OnLeaveCombat()
+    NHIsInfight = false
+    NHEnemyDB_truncate()
 end
