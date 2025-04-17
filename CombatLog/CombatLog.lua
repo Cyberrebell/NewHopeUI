@@ -1,5 +1,6 @@
 NHCombatLog = {}
 NHIsInfight = false
+NHPlayerGUID = nil
 
 function NHCombatLog:OnCombatLog(timestamp, event, sourceGUID, sourceName, sourceFlags, destGUID, destName, destFlags, spellID, spellName, spellSchool, value, damageType)
     NHEnemyDB_registerUnit(sourceGUID, sourceName, sourceFlags)
@@ -17,6 +18,7 @@ end
 
 function NHCombatLog:OnEnterCombat()
     NHIsInfight = true
+    NHPlayerGUID = UnitGUID("player")
     NHMessageHandler:EnableThreatMessages()
 end
 

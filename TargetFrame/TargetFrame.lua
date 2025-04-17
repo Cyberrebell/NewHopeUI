@@ -2,7 +2,7 @@ NHTargetFrame = {}
 
 function NHTargetFrame:updateTargets()
     local i = 1
-    for GUID, unit in pairs(NHEnemyDB) do
+    for _, unit in pairs(NHEnemyDB_get_sorted_hp_max()) do
         if i < 5 then
             _G["NHBoss"..i]:SetUnit(unit)
         elseif i < 25 then

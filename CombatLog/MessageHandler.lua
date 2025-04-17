@@ -9,12 +9,25 @@ local function threatMsgKeyToGUID(key)
     return format("0x%02X%02X%02X%02X%02X%02X%02X%02X", string.byte(key, 1, 8))
 end
 
-function NHMessageHandler:OnAddonMessageReceived(prefix, text)
-    if prefix == "TL2" and string.sub(text, 0, 2) == "ST" then
-        for key, val in string.gmatch(text, "([^=:]+)=(%d+),") do
-            local GUID = threatMsgKeyToGUID(key)
-            NHEnemyDB[GUID].threat = val
+function NHMessageHandler:OnAddonMessageReceived(prefix, text, _, sender)
+    if prefix == "TL2" then
+        local subject = string.sub(text, 0, 2)
+        local threatTarget
+        if subject == "ST" then
+            threatTarget = NHPlayerGUID
+        elseif subject == "TU" then
+            threatTarget = UnitGUID(sender)
         end
+        if threatTarget then
+            for key, val in string.gmatch(text, "([^=:]+)=(%d+),") do
+                local GUID = threatMsgKeyToGUID(key)
+                NHEnemyDB[GUID].threat[threatTarget] = val
+            end
+        else
+            DEFAULT_CHAT_FRAME:AddMessage("Unknown TL2 message: "..text)
+        end
+    else
+        DEFAULT_CHAT_FRAME:AddMessage("Unknown addon message: "..text)
     end
 end
 
