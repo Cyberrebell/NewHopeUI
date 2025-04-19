@@ -19,6 +19,7 @@ end
 function NHCombatLog:OnEnterCombat()
     NHIsInfight = true
     NHPlayerGUID = UnitGUID("player")
+    NHEnemyDB_inspectUnit("target")
     NHMessageHandler:EnableThreatMessages()
 end
 
