@@ -41,7 +41,7 @@
                 </Scripts>
                 <NormalTexture file=""/>
             </CheckButton>
-            <StatusBar name="$parentThreatBar" minValue="0" maxValue="100" defaultValue="0">
+            <StatusBar name="$parentThreatBar" minValue="0" maxValue="1" defaultValue="0">
                 <Size>
                     <AbsDimension x="800" y="2"/>
                 </Size>

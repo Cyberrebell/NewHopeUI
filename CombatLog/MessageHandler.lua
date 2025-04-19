@@ -21,7 +21,7 @@ function NHMessageHandler:OnAddonMessageReceived(prefix, text, _, sender)
         if threatTarget then
             for key, val in string.gmatch(text, "([^=:]+)=(%d+),") do
                 local GUID = threatMsgKeyToGUID(key)
-                NHEnemyDB[GUID].threat[threatTarget] = val
+                NHEnemyDB[GUID].threat[threatTarget] = tonumber(val)
             end
         else
             DEFAULT_CHAT_FRAME:AddMessage("Unknown TL2 message: "..text)

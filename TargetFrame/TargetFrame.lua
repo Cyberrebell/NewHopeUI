@@ -1,8 +1,19 @@
 NHTargetFrame = {}
 
+local function NHEnemyDB_order_by_hp_max_desc()
+    local sorted = {}
+    for _, val in pairs(NHEnemyDB) do
+        table.insert(sorted, val)
+    end
+    table.sort(sorted, function (a, b)
+        return a.hp.max > b.hp.max
+    end)
+    return sorted
+end
+
 function NHTargetFrame:updateTargets()
     local i = 1
-    for _, unit in pairs(NHEnemyDB_get_sorted_hp_max()) do
+    for _, unit in pairs(NHEnemyDB_order_by_hp_max_desc()) do
         if i < 5 then
             _G["NHBoss"..i]:SetUnit(unit)
         elseif i < 25 then

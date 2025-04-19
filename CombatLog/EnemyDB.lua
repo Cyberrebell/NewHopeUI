@@ -5,17 +5,6 @@ NHEnemyDBEvents = {
     onEnemiesUpdated = {}
 }
 
-function NHEnemyDB_get_sorted_hp_max()
-    local sorted = {}
-    for _, val in pairs(NHEnemyDB) do
-        table.insert(sorted, val)
-    end
-    table.sort(sorted, function (a, b)
-        return a.hp.max > b.hp.max
-    end)
-    return sorted
-end
-
 function NHEnemyDB_registerUnit(GUID, name, flags)
     if NHEnemyDB[GUID] then return end
     if bit.band(COMBATLOG_OBJECT_REACTION_HOSTILE, flags) ~= 0 then
