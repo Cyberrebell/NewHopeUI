@@ -20,7 +20,7 @@ function NHTargetBar:PostClick(frame, button, down)
     frame:SetChecked(0)
 end
 
-function NHTargetBar:OnUpdate(frame, elapsed)
+function NHTargetBar:update(frame)
     if frame.target then
         local hp = frame.target.hp.value
         local maxHP = frame.target.hp.max

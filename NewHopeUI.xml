@@ -38,6 +38,9 @@
             <OnEvent>
                 NHCombatLog:OnCombatLog(...)
             </OnEvent>
+            <OnUpdate>
+                NewHopeUI_OnUpdate(self, elapsed)
+            </OnUpdate>
         </Scripts>
     </Frame>
     <Minimap frameStrata="BACKGROUND">

@@ -58,6 +58,5 @@ function NHMessageHandler:EnableThreatMessages()
     if not NHMessageHandler.threatMessagesStarted then
         NHMessageHandler.threatMessagesStarted = true
         SendAddonMessage("TL2", "RU", "WHISPER", "Btbserver")
-        DEFAULT_CHAT_FRAME:AddMessage("threat messages started")
     end
 end

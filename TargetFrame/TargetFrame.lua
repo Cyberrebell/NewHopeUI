@@ -1,4 +1,4 @@
-NHTargetFrame = {}
+NHTargetFrame = {targetBars = {}, bossBars = {}, mobBars = {}}
 
 local function NHEnemyDB_order_by_hp_max_desc()
     local sorted = {}
@@ -14,19 +14,12 @@ end
 function NHTargetFrame:updateTargets()
     local i = 1
     for _, unit in pairs(NHEnemyDB_order_by_hp_max_desc()) do
-        if i < 5 then
-            _G["NHBoss"..i]:SetUnit(unit)
-        elseif i < 25 then
-            _G["NHMob"..(i - 4)]:SetUnit(unit)
-        end
+        if i > 24 then return end
+        NHTargetFrame.targetBars[i]:SetUnit(unit)
         i = i + 1
     end
-    for k = i,24 do
-        if k < 5 then
-            _G["NHBoss"..k]:SetUnit(nil)
-        else
-            _G["NHMob"..(k - 4)]:SetUnit(nil)
-        end
+    for j = i,24 do
+        NHTargetFrame.targetBars[j]:SetUnit(nil)
     end
 end
 
@@ -35,6 +28,8 @@ local function initTargetFrames()
         local bar = _G["NHBoss"..(i + 1)]
         bar:SetPoint("TOP", 0, i * -16)
         bar:Hide()
+        table.insert(NHTargetFrame.targetBars, bar)
+        table.insert(NHTargetFrame.bossBars, bar)
     end
     for i = 0,19 do
         local bar = _G["NHMob"..(i + 1)]
@@ -42,6 +37,8 @@ local function initTargetFrames()
         bar:SetPoint("TOP", 0, math.floor(i / 4) * -16)
         NHTargetBar:SetSmallMode(bar, true)
         bar:Hide()
+        table.insert(NHTargetFrame.targetBars, bar)
+        table.insert(NHTargetFrame.mobBars, bar)
     end
 end
 

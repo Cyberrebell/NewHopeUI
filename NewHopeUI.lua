@@ -1,3 +1,21 @@
+local delta_interval = 0.3
+local delta = 0
+
+function NewHopeUI_OnUpdate(frame, elapsed)
+    delta = delta + elapsed
+    if delta > delta_interval then
+        NHEnemyDB_update()
+
+        for _, bar in pairs(NHTargetFrame.targetBars) do
+            NHTargetBar:update(bar)
+        end
+
+        NHPlayerPos.x, NHPlayerPos.y = GetPlayerMapPosition("player")
+
+        delta = delta - delta_interval
+    end
+end
+
 function NewHopeUI_OnLoad()
     --DEFAULT_CHAT_FRAME:AddMessage("NewHopeUI started")
     HideBlizzardUI()
