@@ -6,7 +6,11 @@
             <AbsDimension x="200" y="200"/>
         </Size>
         <Anchors>
-            <Anchor point="LEFT"/>
+            <Anchor point="LEFT">
+                <Offset>
+                    <AbsDimension x="0" y="-70"/>
+                </Offset>
+            </Anchor>
         </Anchors>
         <Frames>
             <Frame>
@@ -22,36 +26,70 @@
                     <Frame name="NHRaid3" inherits="NHRaidMember"/>
                     <Frame name="NHRaid4" inherits="NHRaidMember"/>
                     <Frame name="NHRaid5" inherits="NHRaidMember"/>
-                    <PlayerModel>
-                        <Size>
-                            <AbsDimension x="50" y="50"/>
-                        </Size>
-                        <Anchors>
-                            <Anchor point="BOTTOMLEFT"/>
-                        </Anchors>
-                        <Backdrop bgFile="Interface/Tooltips/UI-Tooltip-Background">
-                            <Color r="0" g="0" b="0" a="1"/>
-                        </Backdrop>
-                        <Layers>
-                            <Layer>
-                                <Texture file="Interface/Glues/CharacterCreate/UI-CharacterCreate-Classes">
-                                    <Size>
-                                        <AbsDimension x="40" y="40"/>
-                                    </Size>
-                                    <Anchors>
-                                        <Anchor point="CENTER"></Anchor>
-                                    </Anchors>
-                                </Texture>
-                            </Layer>
-                        </Layers>
-                    </PlayerModel>
+                    <Frame name="NHRaid6" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid7" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid8" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid9" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid10" inherits="NHRaidMember"/>
+                </Frames>
+            </Frame>
+            <Frame>
+                <Size>
+                    <AbsDimension x="50" y="200"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="LEFT">
+                        <Offset>
+                            <AbsDimension x="51" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Frame name="NHRaid11" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid12" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid13" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid14" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid15" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid16" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid17" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid18" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid19" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid20" inherits="NHRaidMember"/>
+                </Frames>
+            </Frame>
+            <Frame>
+                <Size>
+                    <AbsDimension x="50" y="200"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="LEFT">
+                        <Offset>
+                            <AbsDimension x="102" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Frame name="NHRaid21" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid22" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid23" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid24" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid25" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid26" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid27" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid28" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid29" inherits="NHRaidMember"/>
+                    <Frame name="NHRaid30" inherits="NHRaidMember"/>
                 </Frames>
             </Frame>
         </Frames>
         <Scripts>
             <OnLoad>
                 NHRaid_OnLoad(self)
+                self:RegisterEvent("RAID_ROSTER_UPDATE")
             </OnLoad>
+            <OnEvent>
+                NHRaid_OnRaidRoasterUpdate()
+            </OnEvent>
         </Scripts>
     </Frame>
 </Ui>

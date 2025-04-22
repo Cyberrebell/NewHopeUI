@@ -1,15 +1,61 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="../UI.xsd">
-    <Frame name="NHRaidMember" virtual="true">
+    <StatusBar name="NHRaidMember" virtual="true" minValue="0" maxValue="100" defaultValue="50">
         <Size>
-            <AbsDimension x="80" y="50"/>
+            <AbsDimension x="50" y="20"/>
         </Size>
         <Anchors>
             <Anchor point="TOP"/>
         </Anchors>
+        <Layers>
+            <Layer>
+                <FontString name="$parentText" inherits="GameFontNormal" font="Fonts/ARIALN.TTF">
+                    <Anchors>
+                        <Anchor point="CENTER"/>
+                    </Anchors>
+                    <FontHeight>
+                        <AbsValue val="10"/>
+                    </FontHeight>
+                    <Color r="1" g="1" b="1"/>
+                </FontString>
+            </Layer>
+        </Layers>
         <Backdrop bgFile="Interface/Tooltips/UI-Tooltip-Background">
-            <Color r="0" g="1" b="0" a="1"/>
+            <Color r="0" g="0" b="0"/>
         </Backdrop>
-    </Frame>
+        <Frames>
+            <CheckButton name="$parentButton" inherits="SecureActionButtonTemplate, ActionButtonTemplate">
+                <Size>
+                    <AbsDimension x="50" y="20"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="CENTER"/>
+                </Anchors>
+                <Attributes>
+                    <Attribute name="type" value="target"/>
+                    <Attribute name="unit" value=""/>
+                </Attributes>
+                <Scripts>
+                    <PostClick>NHTargetBar:PostClick(self, button, down)</PostClick>
+                </Scripts>
+                <NormalTexture file=""/>
+            </CheckButton>
+            <StatusBar name="$parentManaBar" minValue="0" maxValue="1" defaultValue="0">
+                <Size>
+                    <AbsDimension x="50" y="2"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="BOTTOM"/>
+                </Anchors>
+                <BarTexture file="Interface/TargetingFrame/UI-StatusBar"/>
+                <BarColor r="0" g="0" b="1"/>
+            </StatusBar>
+        </Frames>
+        <Scripts>
+            <OnLoad>NHRaidMember_OnLoad(self)</OnLoad>
+        </Scripts>
+        <BarTexture file="Interface/TargetingFrame/UI-StatusBar"/>
+        <BarColor r="0" g="1" b="0"/>
+    </StatusBar>
 </Ui>
