@@ -21,16 +21,16 @@
                     <Anchor point="LEFT"/>
                 </Anchors>
                 <Frames>
-                    <Frame name="NHRaid1" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid2" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid3" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid4" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid5" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid6" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid7" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid8" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid9" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid10" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid1" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid2" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid3" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid4" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid5" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid6" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid7" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid8" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid9" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid10" inherits="NHRaidMember"/>
                 </Frames>
             </Frame>
             <Frame>
@@ -45,16 +45,16 @@
                     </Anchor>
                 </Anchors>
                 <Frames>
-                    <Frame name="NHRaid11" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid12" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid13" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid14" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid15" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid16" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid17" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid18" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid19" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid20" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid11" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid12" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid13" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid14" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid15" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid16" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid17" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid18" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid19" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid20" inherits="NHRaidMember"/>
                 </Frames>
             </Frame>
             <Frame>
@@ -69,16 +69,16 @@
                     </Anchor>
                 </Anchors>
                 <Frames>
-                    <Frame name="NHRaid21" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid22" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid23" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid24" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid25" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid26" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid27" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid28" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid29" inherits="NHRaidMember"/>
-                    <Frame name="NHRaid30" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid21" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid22" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid23" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid24" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid25" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid26" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid27" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid28" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid29" inherits="NHRaidMember"/>
+                    <StatusBar name="NHRaid30" inherits="NHRaidMember"/>
                 </Frames>
             </Frame>
         </Frames>

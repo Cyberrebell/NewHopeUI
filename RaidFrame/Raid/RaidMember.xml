@@ -1,7 +1,7 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="../UI.xsd">
-    <StatusBar name="NHRaidMember" virtual="true" minValue="0" maxValue="100" defaultValue="50">
+    <StatusBar name="NHRaidMember" virtual="true">
         <Size>
             <AbsDimension x="50" y="20"/>
         </Size>
@@ -33,7 +33,13 @@
                     <Anchor point="CENTER"/>
                 </Anchors>
                 <Attributes>
-                    <Attribute name="type" value="target"/>
+                    <Attribute name="type1" value="action"/>
+                    <Attribute name="action1" value="1"/>
+                    <Attribute name="type2" value="action"/>
+                    <Attribute name="action2" value="3"/>
+                    <Attribute name="type3" value="action"/>
+                    <Attribute name="action3" value="2"/>
+                    <Attribute name="shift-type1" value="target"/>
                     <Attribute name="unit" value=""/>
                 </Attributes>
                 <Scripts>
