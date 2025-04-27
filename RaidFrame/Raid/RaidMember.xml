@@ -34,11 +34,11 @@
                 </Anchors>
                 <Attributes>
                     <Attribute name="type1" value="action"/>
-                    <Attribute name="action1" value="1"/>
+                    <Attribute name="action1" value="62"/>
                     <Attribute name="type2" value="action"/>
-                    <Attribute name="action2" value="3"/>
+                    <Attribute name="action2" value="110"/>
                     <Attribute name="type3" value="action"/>
-                    <Attribute name="action3" value="2"/>
+                    <Attribute name="action3" value="109"/>
                     <Attribute name="shift-type1" value="target"/>
                     <Attribute name="unit" value=""/>
                 </Attributes>

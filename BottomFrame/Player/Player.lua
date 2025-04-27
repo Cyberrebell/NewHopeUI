@@ -1,3 +1,5 @@
+NHPlayer = { pos = {}, class = "", spec = { 0, 0, 0 }, isHeal = false }
+
 local playerHealth
 local playerHealthText
 local playerPower
@@ -18,6 +20,7 @@ function NHPlayer_OnLoad(self)
     playerCastbarIcon = _G["NHPlayerCastbarIcon"]
     incomingHeal = _G["NHIncomingHeal"]
     incomingHealText = _G["NHIncomingHealText"]
+    _, NHPlayer.class = UnitClass("player")
 end
 
 function NHPlayer_OnUpdate(self, elapsed)
@@ -54,5 +57,24 @@ function NHPlayer_OnUpdate(self, elapsed)
         incomingHealText:SetText("+"..inc)
     else
         incomingHeal:Hide()
+    end
+end
+
+function NHPlayer:UpdateSpec()
+    for tab = 1, GetNumTalentTabs() do
+        local _, _, points = GetTalentTabInfo(tab)
+        NHPlayer.spec[tab] = points
+    end
+    local specHealerMap = {}
+    specHealerMap["PRIEST"] = {1, 2}
+    specHealerMap["DRUID"] = {3}
+    specHealerMap["SHAMAN"] = {3}
+    specHealerMap["PALADIN"] = {1}
+    if specHealerMap[NHPlayer.class] ~= nil then
+        for _, tab in pairs(specHealerMap[NHPlayer.class]) do
+            if NHPlayer.spec[tab] > 30 then
+                NHPlayer.isHeal = true
+            end
+        end
     end
 end

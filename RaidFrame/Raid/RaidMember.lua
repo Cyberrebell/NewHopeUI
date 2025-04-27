@@ -19,4 +19,16 @@ function NHRaidMember_OnLoad(frame)
             frame:Hide()
         end
     end
+
+    function frame:SetHealerMode(active)
+        if active then
+            frame.button:SetAttribute("action1", 1)
+            frame.button:SetAttribute("action2", 3)
+            frame.button:SetAttribute("action3", 2)
+        else
+            frame.button:SetAttribute("action1", 62)
+            frame.button:SetAttribute("action2", 110)
+            frame.button:SetAttribute("action3", 109)
+        end
+    end
 end

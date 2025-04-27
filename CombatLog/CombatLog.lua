@@ -1,7 +1,6 @@
 NHCombatLog = {}
 NHIsInfight = false
 NHPlayerGUID = nil
-NHPlayerPos = {}
 
 function NHCombatLog:OnCombatLog(timestamp, event, sourceGUID, sourceName, sourceFlags, destGUID, destName, destFlags, spellID, spellName, spellSchool, value, damageType)
     NHEnemyDB_registerUnit(sourceGUID, sourceName, sourceFlags)

@@ -70,7 +70,7 @@ end
 
 function NHEnemyDB_update()
     for GUID, unit in pairs(NHEnemyDB) do
-        local playerDistance = math.sqrt(math.pow(unit.pos.x - NHPlayerPos.x, 2) + math.pow(unit.pos.y - NHPlayerPos.y, 2), 2)
+        local playerDistance = math.sqrt(math.pow(unit.pos.x - NHPlayer.pos.x, 2) + math.pow(unit.pos.y - NHPlayer.pos.y, 2), 2)
         if playerDistance > 0.05 then
             NHEnemyDB_removeUnit(GUID)
         else

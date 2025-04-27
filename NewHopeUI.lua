@@ -4,13 +4,14 @@ local delta = 0
 function NewHopeUI_OnUpdate(frame, elapsed)
     delta = delta + elapsed
     if delta > delta_interval then
+        NHPlayer.pos.x, NHPlayer.pos.y = GetPlayerMapPosition("player")
         NHEnemyDB_update()
 
         for _, bar in pairs(NHTargetFrame.targetBars) do
             NHTargetBar:update(bar)
         end
 
-        NHPlayerPos.x, NHPlayerPos.y = GetPlayerMapPosition("player")
+        NHRaid:Update()
 
         delta = delta - delta_interval
     end
