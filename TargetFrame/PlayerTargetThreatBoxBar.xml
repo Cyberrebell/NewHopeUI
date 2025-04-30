@@ -1,0 +1,28 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="../UI.xsd">
+    <StatusBar name="NHPlayerTargetThreatBoxBar" minValue="0" maxValue="1" defaultValue="0" virtual="true">
+        <Size>
+            <AbsDimension x="100" y="10"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOP">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+        <Layers>
+            <Layer>
+                <FontString name="$parentText" inherits="GameFontNormal" font="Fonts/ARIALN.TTF">
+                    <FontHeight>
+                        <AbsValue val="7"/>
+                    </FontHeight>
+                    <Color r="1" g="1" b="1"/>
+                </FontString>
+            </Layer>
+        </Layers>
+        <BarTexture file="Interface/PaperDollInfoFrame/UI-Character-Skills-Bar"/>
+        <BarColor r="1" g="1" b="0" a="0.6"/>
+    </StatusBar>
+</Ui>

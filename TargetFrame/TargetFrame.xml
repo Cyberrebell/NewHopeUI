@@ -152,6 +152,7 @@
                 self:RegisterEvent("UNIT_TARGET")
             </OnLoad>
             <OnEvent>
+                NHPlayerTargetFrame:updateTarget(...)
                 NHCombatLog:OnUnitTargetChanged(...)
             </OnEvent>
         </Scripts>

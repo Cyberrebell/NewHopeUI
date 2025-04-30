@@ -26,5 +26,10 @@ TargetFrame\TargetBar.lua
 TargetFrame\TargetBar.xml
 TargetFrame\TargetFrame.lua
 TargetFrame\TargetFrame.xml
+TargetFrame\PlayerTargetThreatBoxBar.xml
+TargetFrame\PlayerTargetThreatBox.lua
+TargetFrame\PlayerTargetThreatBox.xml
+TargetFrame\PlayerTargetFrame.lua
+TargetFrame\PlayerTargetFrame.xml
 NewHopeUI.lua
 NewHopeUI.xml

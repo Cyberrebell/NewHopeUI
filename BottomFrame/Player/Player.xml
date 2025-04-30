@@ -33,7 +33,7 @@
                 <BarTexture file="Interface/TargetingFrame/UI-StatusBar"/>
                 <BarColor r="0" g="1" b="0" a="0.7"/>
             </StatusBar>
-            <StatusBar name="NHPlayerHealth">
+            <StatusBar name="$parentHealth">
                 <Size>
                     <AbsDimension x="150" y="20"/>
                 </Size>
@@ -42,7 +42,7 @@
                 </Anchors>
                 <Layers>
                     <Layer>
-                        <FontString name="NHPlayerHealthText" inherits="GameFontNormal">
+                        <FontString name="$parentText" inherits="GameFontNormal">
                             <Anchors>
                                 <Anchor point="CENTER"/>
                             </Anchors>
@@ -56,7 +56,7 @@
                 <BarTexture file="Interface/TargetingFrame/UI-StatusBar"/>
                 <BarColor r="1" g="0" b="0"/>
             </StatusBar>
-            <StatusBar name="NHPlayerPower">
+            <StatusBar name="$parentPower">
                 <Size>
                     <AbsDimension x="150" y="20"/>
                 </Size>
@@ -65,7 +65,7 @@
                 </Anchors>
                 <Layers>
                     <Layer>
-                        <FontString name="NHPlayerPowerText" inherits="GameFontNormal">
+                        <FontString name="$parentText" inherits="GameFontNormal">
                             <Anchors>
                                 <Anchor point="CENTER"/>
                             </Anchors>
@@ -79,7 +79,7 @@
                 <BarTexture file="Interface/TargetingFrame/UI-StatusBar"/>
                 <BarColor r="0" g="0" b="1"/>
             </StatusBar>
-            <StatusBar name="NHPlayerCastbar">
+            <StatusBar name="$parentCastbar">
                 <Size>
                     <AbsDimension x="300" y="20"/>
                 </Size>
@@ -88,7 +88,7 @@
                 </Anchors>
                 <Layers>
                     <Layer>
-                        <FontString name="NHPlayerCastbarText" inherits="GameFontNormal">
+                        <FontString name="$parentText" inherits="GameFontNormal">
                             <Anchors>
                                 <Anchor point="CENTER"/>
                             </Anchors>
@@ -109,7 +109,7 @@
                         </Anchors>
                         <Layers>
                             <Layer>
-                                <Texture name="NHPlayerCastbarIcon"/>
+                                <Texture name="$parentIcon"/>
                             </Layer>
                         </Layers>
                     </Frame>
@@ -119,12 +119,8 @@
             </StatusBar>
         </Frames>
         <Scripts>
-            <OnLoad>
-                NHPlayer_OnLoad(self)
-            </OnLoad>
-            <OnUpdate>
-                NHPlayer_OnUpdate(self, elapsed)
-            </OnUpdate>
+            <OnLoad>NHPlayer_OnLoad(self)</OnLoad>
+            <OnUpdate>NHPlayer_OnUpdate(self, elapsed)</OnUpdate>
         </Scripts>
     </Frame>
 </Ui>

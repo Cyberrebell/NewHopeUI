@@ -1,0 +1,26 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="../UI.xsd">
+    <Frame name="NHPlayerTargetThreatBox" virtual="true">
+        <Size>
+            <AbsDimension x="100" y="50"/>
+        </Size>
+        <Anchors>
+            <Anchor point="RIGHT">
+                <Offset>
+                    <AbsDimension x="100" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+        <Frames>
+            <StatusBar name="$parentBar1" inherits="NHPlayerTargetThreatBoxBar"/>
+            <StatusBar name="$parentBar2" inherits="NHPlayerTargetThreatBoxBar"/>
+            <StatusBar name="$parentBar3" inherits="NHPlayerTargetThreatBoxBar"/>
+            <StatusBar name="$parentBar4" inherits="NHPlayerTargetThreatBoxBar"/>
+            <StatusBar name="$parentBar5" inherits="NHPlayerTargetThreatBoxBar"/>
+        </Frames>
+        <Scripts>
+            <OnLoad>NHPlayerTargetThreatBox_OnLoad(self)</OnLoad>
+        </Scripts>
+    </Frame>
+</Ui>

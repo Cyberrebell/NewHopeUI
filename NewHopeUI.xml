@@ -29,6 +29,7 @@
             <Frame name="NHPlayer" inherits="NHPlayer"></Frame>
             <Frame name="NHActionBar" inherits="NHActionBar"></Frame>
             <Frame name="NHStats" inherits="NHStats"></Frame>
+            <StatusBar name="NHPlayerTargetFrame" inherits="NHPlayerTargetFrame"/>
         </Frames>
         <Scripts>
             <OnLoad>

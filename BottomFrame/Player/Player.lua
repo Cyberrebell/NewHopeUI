@@ -60,7 +60,7 @@ function NHPlayer_OnUpdate(self, elapsed)
     end
 end
 
-function NHPlayer:UpdateSpec()
+function NHPlayer:updateSpec()
     for tab = 1, GetNumTalentTabs() do
         local _, _, points = GetTalentTabInfo(tab)
         NHPlayer.spec[tab] = points

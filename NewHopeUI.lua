@@ -7,11 +7,13 @@ function NewHopeUI_OnUpdate(frame, elapsed)
         NHPlayer.pos.x, NHPlayer.pos.y = GetPlayerMapPosition("player")
         NHEnemyDB_update()
 
+        NHPlayerTargetFrame:update()
+
         for _, bar in pairs(NHTargetFrame.targetBars) do
             NHTargetBar:update(bar)
         end
 
-        NHRaid:Update()
+        NHRaid:update()
 
         delta = delta - delta_interval
     end
@@ -31,6 +33,12 @@ function HideBlizzardUI()
     BuffFrame:Hide()
     CastingBarFrame:UnregisterAllEvents()
     CastingBarFrame:Hide()
+    TargetFrame:UnregisterAllEvents()
+    TargetFrameHealthBar:UnregisterAllEvents()
+    TargetFrameManaBar:UnregisterAllEvents()
+    TargetFrame:Hide()
+    TargetofTargetFrame:UnregisterAllEvents()
+    TargetofTargetFrame:Hide()
     --ChatFrame1:UnregisterAllEvents()
     --ChatFrame1:Hide()
 end

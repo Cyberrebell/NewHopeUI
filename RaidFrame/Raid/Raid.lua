@@ -6,18 +6,19 @@ function NHRaid_OnLoad(self)
         local yOffset = (i - 1) % 10
         raidMember:SetPoint("TOP", 0, yOffset * -21)
         table.insert(NHRaid.members, raidMember)
-        raidMember:SetHealerMode(false)
+        raidMember:setHealerMode(false)
     end
 end
 
 function NHRaid_OnRaidRoasterUpdate()
-    NHPlayer:UpdateSpec()
-    NHRaid:Update()
+    NHPlayer:updateSpec()
+    NHRaid:update()
 end
 
-function NHRaid:Update()
+function NHRaid:update()
     for _, raidMember in pairs(NHRaid.members) do
-        raidMember:SetHealerMode(NHPlayer.isHeal)
-        raidMember:Update()
+        raidMember:setHealerMode(NHPlayer.isHeal)
+        raidMember:update()
     end
+    _G["NHPlayerTargetTarget"]:setHealerMode(NHPlayer.isHeal)
 end
