@@ -1,0 +1,89 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="../UI.xsd">
+    <Frame name="NHBuffFrame" parent="UIParent" virtual="true">
+        <Size>
+            <AbsDimension x="108" y="300"/>
+        </Size>
+        <Anchors>
+            <Anchor point="RIGHT"/>
+        </Anchors>
+        <Frames>
+            <Frame>
+                <Size>
+                    <AbsDimension x="108" y="20"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="TOP"/>
+                </Anchors>
+                <Frames>
+                    <CheckButton name="NHBuff1" inherits="NHBuff"/>
+                    <CheckButton name="NHBuff2" inherits="NHBuff"/>
+                    <CheckButton name="NHBuff3" inherits="NHBuff"/>
+                    <CheckButton name="NHBuff4" inherits="NHBuff"/>
+                    <CheckButton name="NHBuff5" inherits="NHBuff"/>
+                </Frames>
+            </Frame>
+            <Frame>
+                <Size>
+                    <AbsDimension x="108" y="20"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="TOP">
+                        <Offset>
+                            <AbsDimension x="0" y="-22"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <CheckButton name="NHBuff6" inherits="NHBuff"/>
+                    <CheckButton name="NHBuff7" inherits="NHBuff"/>
+                    <CheckButton name="NHBuff8" inherits="NHBuff"/>
+                    <CheckButton name="NHBuff9" inherits="NHBuff"/>
+                    <CheckButton name="NHBuff10" inherits="NHBuff"/>
+                </Frames>
+            </Frame>
+            <Frame>
+                <Size>
+                    <AbsDimension x="108" y="20"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="TOP">
+                        <Offset>
+                            <AbsDimension x="0" y="-44"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <CheckButton name="NHBuff11" inherits="NHBuff"/>
+                    <CheckButton name="NHBuff12" inherits="NHBuff"/>
+                    <CheckButton name="NHBuff13" inherits="NHBuff"/>
+                    <CheckButton name="NHBuff14" inherits="NHBuff"/>
+                    <CheckButton name="NHBuff15" inherits="NHBuff"/>
+                </Frames>
+            </Frame>
+            <Frame>
+                <Size>
+                    <AbsDimension x="108" y="20"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="TOP">
+                        <Offset>
+                            <AbsDimension x="0" y="-66"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <CheckButton name="NHBuff16" inherits="NHBuff"/>
+                    <CheckButton name="NHBuff17" inherits="NHBuff"/>
+                    <CheckButton name="NHBuff18" inherits="NHBuff"/>
+                    <CheckButton name="NHBuff19" inherits="NHBuff"/>
+                    <CheckButton name="NHBuff20" inherits="NHBuff"/>
+                </Frames>
+            </Frame>
+        </Frames>
+        <Scripts>
+            <OnLoad>NHBuffFrame_OnLoad(self)</OnLoad>
+        </Scripts>
+    </Frame>
+</Ui>

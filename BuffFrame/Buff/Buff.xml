@@ -1,33 +1,17 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="../UI.xsd">
-    <Frame name="NHBuff" virtual="true">
+    <CheckButton name="NHBuff" inherits="ActionButtonTemplate" virtual="true">
         <Size>
-            <AbsDimension x="100" y="300"/>
+            <AbsDimension x="20" y="20"/>
         </Size>
         <Anchors>
-            <Anchor point="CENTER"/>
+            <Anchor point="RIGHT"/>
         </Anchors>
-        <Layers>
-            <Layer>
-                <FontString text="Buff und Debuff" inherits="GameFontNormal">
-                    <Anchors>
-                        <Anchor point="TOP"></Anchor>
-                    </Anchors>
-                    <FontHeight>
-                        <RelValue val="8"/>
-                    </FontHeight>
-                    <Color r="1" g="1" b="1"/>
-                </FontString>
-            </Layer>
-        </Layers>
-        <Backdrop bgFile="Interface/Tooltips/UI-Tooltip-Background">
-            <Color r="0" g="0" b="0" a="1"/>
-        </Backdrop>
         <Scripts>
-            <OnLoad>
-                NHBuff_OnLoad(self)
-            </OnLoad>
+            <OnLoad>NHBuff_OnLoad(self)</OnLoad>
+            <OnClick>self:PostClick(self, button, down)</OnClick>
         </Scripts>
-    </Frame>
+        <NormalTexture file=""/>
+    </CheckButton>
 </Ui>

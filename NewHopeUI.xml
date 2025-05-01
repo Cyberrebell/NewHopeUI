@@ -3,20 +3,7 @@
     xsi:schemaLocation="../UI.xsd">
     <Frame name="NHTargetFrame" inherits="NHTargetFrame"/>
     <Frame name="NHRaidFrame" inherits="NHRaid"/>
-    <Frame name="NHBuffFrame" parent="UIParent" frameStrata="BACKGROUND">
-        <Size>
-            <AbsDimension x="100" y="300"/>
-        </Size>
-        <Anchors>
-            <Anchor point="RIGHT"/>
-        </Anchors>
-        <Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background">
-            <Color r="0" g="0" b="0" a="0.8"/>
-        </Backdrop>
-        <Frames>
-            <Frame name="NHBuff" inherits="NHBuff"></Frame>
-        </Frames>
-    </Frame>
+    <Frame name="NHBuffFrame" inherits="NHBuffFrame"/>
     <Frame name="NHBottomFrame" parent="UIParent" frameStrata="BACKGROUND">
         <Size>
             <AbsDimension x="1520" y="200"/>

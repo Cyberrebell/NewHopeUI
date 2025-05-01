@@ -15,6 +15,8 @@ function NewHopeUI_OnUpdate(frame, elapsed)
 
         NHRaid:update()
 
+        NHBuffFrame:update()
+
         delta = delta - delta_interval
     end
 end
