@@ -11,13 +11,31 @@
         <Anchors>
             <Anchor point="BOTTOM"/>
         </Anchors>
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture name="NHLogo" file="Interface\AddOns\NewHopeUI\nhl128.blp" alphaMode="ADD">
+                    <Anchors>
+                        <Anchor point="LEFT">
+                            <Offset>
+                                <AbsDimension x="250" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                    <Size>
+                        <AbsDimension x="198" y="198"/>
+                    </Size>
+                </Texture>
+            </Layer>
+        </Layers>
         <Frames>
-            <Frame name="NHChat" inherits="NHChat"></Frame>
             <Frame name="NHPlayer" inherits="NHPlayer"></Frame>
             <Frame name="NHActionBar" inherits="NHActionBar"></Frame>
             <Frame name="NHStats" inherits="NHStats"></Frame>
             <StatusBar name="NHPlayerTargetFrame" inherits="NHPlayerTargetFrame"/>
         </Frames>
+        <Backdrop bgFile="Interface/Tooltips/UI-Tooltip-Background">
+            <Color r="0" g="0" b="0" a="0.5"/>
+        </Backdrop>
         <Scripts>
             <OnLoad>
                 NewHopeUI_OnLoad()

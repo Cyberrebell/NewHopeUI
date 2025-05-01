@@ -11,7 +11,6 @@ BottomFrame\ActionBar\ActionButton.xml
 BottomFrame\ActionBar\ActionBar.lua
 BottomFrame\ActionBar\ActionBar.xml
 BottomFrame\Chat\Chat.lua
-BottomFrame\Chat\Chat.xml
 BottomFrame\Player\Player.lua
 BottomFrame\Player\Player.xml
 BottomFrame\Stats\Stats.lua

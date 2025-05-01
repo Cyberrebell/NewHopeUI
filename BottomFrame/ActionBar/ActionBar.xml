@@ -13,7 +13,7 @@
             </Anchor>
         </Anchors>
         <Backdrop bgFile="Interface/Tooltips/UI-Tooltip-Background">
-            <Color r="0" g="0" b="0" a="0.5"/>
+            <Color r="0" g="0" b="0" a="0.6"/>
         </Backdrop>
         <Scripts>
             <OnLoad>

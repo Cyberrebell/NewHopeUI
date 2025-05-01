@@ -83,7 +83,11 @@
             </Frame>
         </Frames>
         <Scripts>
-            <OnLoad>NHBuffFrame_OnLoad(self)</OnLoad>
+            <OnLoad>
+                NHBuffFrame_OnLoad(self)
+                self:RegisterEvent("PLAYER_ENTERING_WORLD")
+            </OnLoad>
+            <OnEvent>NHChat_OnReady()</OnEvent>
         </Scripts>
     </Frame>
 </Ui>

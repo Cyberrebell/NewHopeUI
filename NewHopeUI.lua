@@ -41,8 +41,6 @@ function HideBlizzardUI()
     TargetFrame:Hide()
     TargetofTargetFrame:UnregisterAllEvents()
     TargetofTargetFrame:Hide()
-    --ChatFrame1:UnregisterAllEvents()
-    --ChatFrame1:Hide()
 end
 
 function HidePartyFrame()

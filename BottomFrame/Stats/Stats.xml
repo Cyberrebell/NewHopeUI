@@ -9,21 +9,21 @@
             <Anchor point="RIGHT"/>
         </Anchors>
         <Layers>
-            <Layer>
-                <FontString text="Stats" inherits="GameFontNormal">
+            <Layer level="BACKGROUND">
+                <Texture name="NHLogo2" file="Interface\AddOns\NewHopeUI\nhl128.blp" alphaMode="ADD">
                     <Anchors>
-                        <Anchor point="TOP"></Anchor>
+                        <Anchor point="RIGHT">
+                            <Offset>
+                                <AbsDimension x="-335" y="0"/>
+                            </Offset>
+                        </Anchor>
                     </Anchors>
-                    <FontHeight>
-                        <RelValue val="8"/>
-                    </FontHeight>
-                    <Color r="1" g="1" b="1"/>
-                </FontString>
+                    <Size>
+                        <AbsDimension x="198" y="198"/>
+                    </Size>
+                </Texture>
             </Layer>
         </Layers>
-        <Backdrop bgFile="Interface/Tooltips/UI-Tooltip-Background">
-            <Color r="0" g="1" b="0" a="0.5"/>
-        </Backdrop>
         <Scripts>
             <OnLoad>
                 NHStats_OnLoad(self)
