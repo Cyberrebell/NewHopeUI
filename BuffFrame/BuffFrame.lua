@@ -25,7 +25,7 @@ function NHBuffFrame:update()
         if buff then
             buffFrame:update(buff.icon, buff.name)
         else
-            buffFrame:update(nil, -1)
+            buffFrame:update(nil, nil)
         end
     end
 end

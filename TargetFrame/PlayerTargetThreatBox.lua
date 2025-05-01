@@ -40,7 +40,9 @@ function NHPlayerTargetThreatBox_OnLoad(frame)
 
         for i, bar in pairs(frame.bars) do
             if threatTop5[i] then
-                bar.text:SetText(threatTop5[i].threat.." "..UnitName("targettarget").." ("..(100 * threatTop5[i].threat / topThreat).."%)")
+                local unitName = UnitName("targettarget")
+                if unitName == nil then unitName = "" end
+                bar.text:SetText(threatTop5[i].threat.." "..unitName.." ("..math.ceil(100 * threatTop5[i].threat / topThreat).."%)")
                 bar:SetMinMaxValues(0, topThreat)
                 bar:SetValue(threatTop5[i].threat)
             else

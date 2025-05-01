@@ -39,6 +39,11 @@ function NHActionButton:UpdateIcon(self)
     if (HasAction(self.slot)) then
         self:SetNormalTexture("")
         self:SetBackdrop({bgFile=GetActionTexture(self.slot)})
+        if IsActionInRange(self.slot) == 0 then
+            self:SetBackdropColor(1, 0, 0)
+        else
+            self:SetBackdropColor(1, 1, 1)
+        end
     else
         self:SetNormalTexture("Interface/Buttons/UI-Quickslot")
         self:SetBackdrop({})

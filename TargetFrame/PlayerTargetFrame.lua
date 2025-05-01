@@ -38,9 +38,11 @@ function NHPlayerTargetFrame_OnUpdate(frame, elapsed)
 end
 
 function NHPlayerTargetFrame:updateTarget(reference)
-    NHPlayerTargetFrame.frame.text:SetText(UnitName("target"))
-    NHPlayerTargetFrame.frame.lvl:SetText("lvl "..UnitLevel("target"))
-    NHPlayerTargetFrame.frame.threatbox:updateTarget()
+    if reference == "player" then
+        NHPlayerTargetFrame.frame.text:SetText(UnitName("target"))
+        NHPlayerTargetFrame.frame.lvl:SetText("lvl "..UnitLevel("target"))
+        NHPlayerTargetFrame.frame.threatbox:updateTarget()
+    end
 end
 
 function NHPlayerTargetFrame:update()
