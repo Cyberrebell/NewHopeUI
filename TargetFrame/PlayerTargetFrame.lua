@@ -40,6 +40,7 @@ end
 function NHPlayerTargetFrame:updateTarget(reference)
     NHPlayerTargetFrame.frame.text:SetText(UnitName("target"))
     NHPlayerTargetFrame.frame.lvl:SetText("lvl "..UnitLevel("target"))
+    NHPlayerTargetFrame.frame.threatbox:updateTarget()
 end
 
 function NHPlayerTargetFrame:update()
@@ -65,12 +66,13 @@ function NHPlayerTargetFrame:setVisible(visible)
     if visible then
         NHPlayerTargetFrame.frame:SetBackdropColor(0, 0, 0, 1)
         NHPlayerTargetFrame.frame.threatbox:Show()
-        NHPlayerTargetFrame.frame.targettarget:setVisible(true)
+        NHPlayerTargetFrame.frame.targettarget:setVisible(UnitExists("targettarget"))
     else
         NHPlayerTargetFrame.frame:SetBackdropColor(0, 0, 0, 0)
         NHPlayerTargetFrame.frame.mana:SetValue(0)
         NHPlayerTargetFrame.frame:SetMinMaxValues(0, 1)
         NHPlayerTargetFrame.frame:SetValue(0)
+        NHPlayerTargetFrame.frame.text:SetText("")
         NHPlayerTargetFrame.frame.lvl:SetText("")
         NHPlayerTargetFrame.frame.health:SetText("")
         NHPlayerTargetFrame.frame.healthPercent:SetText("")
