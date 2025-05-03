@@ -87,7 +87,7 @@
                 NHBuffFrame_OnLoad(self)
                 self:RegisterEvent("PLAYER_ENTERING_WORLD")
             </OnLoad>
-            <OnEvent>NHChat_OnReady()</OnEvent>
+            <OnEvent>NHEventManager:emit(NHEvent.enteredWorld)</OnEvent>
         </Scripts>
     </Frame>
 </Ui>

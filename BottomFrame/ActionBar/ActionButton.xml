@@ -9,6 +9,30 @@
             <Attribute name="type" value="action"/>
             <Attribute name="action" value="0" type="number"/>
         </Attributes>
+        <Layers>
+            <Layer>
+                <FontString name="$parentKeybind" inherits="GameFontNormal">
+                    <Anchors>
+                        <Anchor point="TOPRIGHT">
+                            <Offset>
+                                <AbsDimension x="-4" y="-4"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                    <Color r="1" g="1" b="1"/>
+                </FontString>
+                <FontString name="$parentCount" inherits="GameFontNormal">
+                    <Anchors>
+                        <Anchor point="BOTTOMRIGHT">
+                            <Offset>
+                                <AbsDimension x="-4" y="-4"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                    <Color r="1" g="1" b="1"/>
+                </FontString>
+            </Layer>
+        </Layers>
         <Scripts>
             <OnUpdate>NHActionButton:OnUpdate(self, elapsed)</OnUpdate>
             <OnDragStart>NHActionButton:OnDragStart(self, button)</OnDragStart>

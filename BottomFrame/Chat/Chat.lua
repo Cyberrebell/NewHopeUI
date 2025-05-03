@@ -1,4 +1,4 @@
-function NHChat_OnReady()
+function NHChat_onEnteredWorld()
 	if GetChatWindowInfo(4) ~= LOOT then
 	    NHChat_setupChatFrames()
 	end
@@ -43,3 +43,5 @@ function NHChat_ApplyBasicSettings(chatFrame)
     chatFrame:SetPoint("BOTTOMLEFT", 24, 36)
     FCF_SetChatWindowFontSize(chatFrame, 12)
 end
+
+NHEventManager:connect(NHEvent.enteredWorld, NHChat_onEnteredWorld)

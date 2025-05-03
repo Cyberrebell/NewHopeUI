@@ -2,6 +2,7 @@
 ## Title: NewHopeUI
 ## Notes: Lightweight all inclusive raid interface
 ## Version: 0.0.1
+CombatLog\EventManager.lua
 CombatLog\EnemyDB.lua
 CombatLog\FocusHeat.lua
 CombatLog\CombatLog.lua

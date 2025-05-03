@@ -7,12 +7,15 @@ function NHActionButton:new(slot, parentFrame)
     button:SetScale(0.77)
     button:SetAttribute("action", slot)
     button.slot = slot
+    button.count = _G[button:GetName().."Count"]
+    --_G[button:GetName().."Keybind"]:SetText(slot)
     return button
 end
 
 function NHActionButton:OnUpdate(self, elapsed)
-    NHActionButton:UpdateIcon(self)
     NHActionButton:UpdateState(self)
+    NHActionButton:UpdateIcon(self)
+    NHActionButton:UpdateCount(self)
 end
 
 function NHActionButton:OnDragStart(self, button)
@@ -48,4 +51,16 @@ function NHActionButton:UpdateIcon(self)
         self:SetNormalTexture("Interface/Buttons/UI-Quickslot")
         self:SetBackdrop({})
     end
+end
+
+function NHActionButton:UpdateCount(self)
+    local count = GetActionCount(self.slot)
+    if (count == 0) then
+        count = nil
+    end
+    self.count:SetText(count)
+end
+
+function NHActionButton:updateKeybind(self, key)
+    _G[self:GetName().."Keybind"]:SetText(key)
 end
