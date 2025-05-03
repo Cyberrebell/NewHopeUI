@@ -1,9 +1,7 @@
 function NHRaidMember_OnLoad(frame)
-    frame.reference = "raid"..string.sub(frame:GetName(), 7)
     frame.text = _G[frame:GetName().."Text"]
     frame.button = _G[frame:GetName().."Button"]
     frame.mana = _G[frame:GetName().."ManaBar"]
-    frame.button:SetAttribute("unit", frame.reference)
     frame.button:RegisterForClicks("AnyDown")
     frame.forceVisible = false
 
@@ -20,6 +18,17 @@ function NHRaidMember_OnLoad(frame)
             frame:Hide()
         end
     end
+
+    function frame:updateReference()
+        local refPrefix = "party"
+        if GetNumRaidMembers() > 0 then
+            refPrefix = "raid"
+        end
+        DEFAULT_CHAT_FRAME:AddMessage(refPrefix)
+        frame.reference = refPrefix..string.sub(frame:GetName(), 7)
+        frame.button:SetAttribute("unit", frame.reference)
+    end
+    frame:updateReference()
 
     function frame:setHealerMode(active)
         if active then

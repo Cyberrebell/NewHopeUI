@@ -18,6 +18,13 @@ local function update()
     _G["NHPlayerTargetTarget"]:setHealerMode(NHPlayer.isHeal)
 end
 
+local function updateRoaster()
+    for _, raidMember in pairs(NHRaid.members) do
+        raidMember:updateReference()
+        raidMember:update()
+    end
+end
+
 NHEventManager:connect(NHEvent.enteredWorld, load)
 NHEventManager:connect(NHEvent.s0IntervalTick, update)
-NHEventManager:connect(NHEvent.raidRoasterUpdate, update)
+NHEventManager:connect(NHEvent.raidRoasterUpdate, updateRoaster)
