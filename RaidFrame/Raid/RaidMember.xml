@@ -43,7 +43,7 @@
                     <Attribute name="unit" value=""/>
                 </Attributes>
                 <Scripts>
-                    <PostClick>NHTargetBar:PostClick(self, button, down)</PostClick>
+                    <PostClick>self:SetChecked(0)</PostClick>
                 </Scripts>
                 <NormalTexture file=""/>
             </CheckButton>

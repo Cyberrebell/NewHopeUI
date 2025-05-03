@@ -1,4 +1,4 @@
-function FocusHeat_update()
+local function update()
     local GUID
     local heat = {}
     for i = 1,25 do
@@ -19,3 +19,5 @@ function FocusHeat_update()
         end
     end
 end
+
+NHEventManager:connect(NHEvent.unitTargetChanged, update)

@@ -1,6 +1,6 @@
 NHPlayerTargetFrame = { frame = nil }
 
-function NHPlayerTargetFrame_OnLoad(frame)
+function NHPlayerTargetFrame_load(frame)
     NHPlayerTargetFrame.frame = frame
     frame.target = nil
     frame.text = _G[frame:GetName().."Text"]
@@ -19,67 +19,75 @@ function NHPlayerTargetFrame_OnLoad(frame)
     frame.targettarget:SetPoint("TOP", 95, 24)
 end
 
-function NHPlayerTargetFrame_OnUpdate(frame, elapsed)
-    if frame.target then
+local function setVisible(visible)
+    frame = NHPlayerTargetFrame.frame
+    if visible then
+        frame:SetBackdropColor(0, 0, 0, 1)
+        frame.threatbox:Show()
+        frame.targettarget:setVisible(UnitExists("targettarget"))
+    else
+        frame:SetBackdropColor(0, 0, 0, 0)
+        frame.mana:SetValue(0)
+        frame:SetMinMaxValues(0, 1)
+        frame:SetValue(0)
+        frame.text:SetText("")
+        frame.lvl:SetText("")
+        frame.health:SetText("")
+        frame.healthPercent:SetText("")
+        frame.threatbox:Hide()
+        frame.targettarget:setVisible(false)
+        frame.castbar:Hide()
+    end
+end
+
+local function updateTarget(reference)
+    if reference == "player" then
+        frame = NHPlayerTargetFrame.frame
+        frame.text:SetText(UnitName("target"))
+        frame.lvl:SetText("lvl "..UnitLevel("target"))
+        frame.threatbox:updateTarget()
+    end
+end
+
+local function updateCastbar()
+    if NHPlayerTargetFrame.frame.target then
         local spell, _, displayName, icon, startTime, endTime = UnitCastingInfo("target")
         if spell == nil then
             spell, _, displayName, icon, startTime, endTime = UnitChannelInfo("target")
         end
+        local castbar = NHPlayerTargetFrame.frame.castbar
         if spell then
-            frame.castbar:Show()
-            frame.castbar:SetMinMaxValues(startTime, endTime)
-            frame.castbar:SetValue(GetTime() * 1000)
-            frame.castbar.icon:SetTexture(icon)
-            frame.castbar.text:SetText(displayName..(" (-%.1f)"):format(endTime/1000 - GetTime()))
+            castbar:Show()
+            castbar:SetMinMaxValues(startTime, endTime)
+            castbar:SetValue(GetTime() * 1000)
+            castbar.icon:SetTexture(icon)
+            castbar.text:SetText(displayName..(" (-%.1f)"):format(endTime/1000 - GetTime()))
         else
-            frame.castbar:Hide()
+            castbar:Hide()
         end
     end
 end
 
-function NHPlayerTargetFrame:updateTarget(reference)
-    if reference == "player" then
-        NHPlayerTargetFrame.frame.text:SetText(UnitName("target"))
-        NHPlayerTargetFrame.frame.lvl:SetText("lvl "..UnitLevel("target"))
-        NHPlayerTargetFrame.frame.threatbox:updateTarget()
-    end
-end
-
-function NHPlayerTargetFrame:update()
+local function updateValues()
     NHPlayerTargetFrame.frame.target = UnitExists("target")
     if NHPlayerTargetFrame.frame.target then
         local maxHp = UnitHealthMax("target")
         local hp = UnitHealth("target")
-        NHPlayerTargetFrame.frame:SetMinMaxValues(0, maxHp)
-        NHPlayerTargetFrame.frame:SetValue(hp)
-        NHPlayerTargetFrame.frame.healthPercent:SetText(math.ceil(100 * hp / maxHp).."%")
-        NHPlayerTargetFrame.frame.health:SetText(hp.." / "..maxHp)
-        NHPlayerTargetFrame.frame.mana:SetMinMaxValues(0, UnitManaMax("target"))
-        NHPlayerTargetFrame.frame.mana:SetValue(UnitMana("target"))
-        NHPlayerTargetFrame.frame.threatbox:update()
-        NHPlayerTargetFrame.frame.targettarget:update()
-        NHPlayerTargetFrame:setVisible(true)
+        frame = NHPlayerTargetFrame.frame
+        frame:SetMinMaxValues(0, maxHp)
+        frame:SetValue(hp)
+        frame.healthPercent:SetText(math.ceil(100 * hp / maxHp).."%")
+        frame.health:SetText(hp.." / "..maxHp)
+        frame.mana:SetMinMaxValues(0, UnitManaMax("target"))
+        frame.mana:SetValue(UnitMana("target"))
+        frame.threatbox:update()
+        frame.targettarget:update()
+        setVisible(true)
     else
-        NHPlayerTargetFrame:setVisible(false)
+        setVisible(false)
     end
 end
 
-function NHPlayerTargetFrame:setVisible(visible)
-    if visible then
-        NHPlayerTargetFrame.frame:SetBackdropColor(0, 0, 0, 1)
-        NHPlayerTargetFrame.frame.threatbox:Show()
-        NHPlayerTargetFrame.frame.targettarget:setVisible(UnitExists("targettarget"))
-    else
-        NHPlayerTargetFrame.frame:SetBackdropColor(0, 0, 0, 0)
-        NHPlayerTargetFrame.frame.mana:SetValue(0)
-        NHPlayerTargetFrame.frame:SetMinMaxValues(0, 1)
-        NHPlayerTargetFrame.frame:SetValue(0)
-        NHPlayerTargetFrame.frame.text:SetText("")
-        NHPlayerTargetFrame.frame.lvl:SetText("")
-        NHPlayerTargetFrame.frame.health:SetText("")
-        NHPlayerTargetFrame.frame.healthPercent:SetText("")
-        NHPlayerTargetFrame.frame.threatbox:Hide()
-        NHPlayerTargetFrame.frame.targettarget:setVisible(false)
-        NHPlayerTargetFrame.frame.castbar:Hide()
-    end
-end
+NHEventManager:connect(NHEvent.s0IntervalTick, updateCastbar)
+NHEventManager:connect(NHEvent.s1IntervalTick, updateValues)
+NHEventManager:connect(NHEvent.unitTargetChanged, updateTarget)

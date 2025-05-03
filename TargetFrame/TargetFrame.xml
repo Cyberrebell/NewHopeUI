@@ -23,12 +23,8 @@
                     <StatusBar name="NHBoss4" inherits="NHTargetBar"/>
                 </Frames>
                 <Scripts>
-                    <OnLoad>
-                        self:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
-                    </OnLoad>
-                    <OnEvent>
-                        NHCombatLog:OnPlayerMouseoverChanged()
-                    </OnEvent>
+                    <OnLoad>self:RegisterEvent("UPDATE_MOUSEOVER_UNIT")</OnLoad>
+                    <OnEvent>NHEventManager:emit(NHEvent.playerMouseoverChanged)</OnEvent>
                 </Scripts>
             </Frame>
             <Frame name="NHMobs">
@@ -79,12 +75,8 @@
                             </Frame>
                         </Frames>
                         <Scripts>
-                            <OnLoad>
-                                self:RegisterEvent("PLAYER_REGEN_ENABLED")
-                            </OnLoad>
-                            <OnEvent>
-                                NHCombatLog:OnLeaveCombat()
-                            </OnEvent>
+                            <OnLoad>self:RegisterEvent("PLAYER_REGEN_ENABLED")</OnLoad>
+                            <OnEvent>NHEventManager:emit(NHEvent.leaveCombat)</OnEvent>
                         </Scripts>
                     </Frame>
                     <Frame>
@@ -127,34 +119,20 @@
                             </Frame>
                         </Frames>
                         <Scripts>
-                            <OnLoad>
-                                self:RegisterEvent("PLAYER_REGEN_DISABLED")
-                            </OnLoad>
-                            <OnEvent>
-                                NHCombatLog:OnEnterCombat()
-                            </OnEvent>
+                            <OnLoad>self:RegisterEvent("PLAYER_REGEN_DISABLED")</OnLoad>
+                            <OnEvent>NHEventManager:emit(NHEvent.enterCombat)</OnEvent>
                         </Scripts>
                     </Frame>
                 </Frames>
                 <Scripts>
-                    <OnLoad>
-                        self:RegisterEvent("CHAT_MSG_ADDON")
-                    </OnLoad>
-                    <OnEvent>
-                        NHMessageHandler:OnAddonMessageReceived(...)
-                    </OnEvent>
+                    <OnLoad>self:RegisterEvent("CHAT_MSG_ADDON")</OnLoad>
+                    <OnEvent>NHEventManager:emit(NHEvent.addonMessageReceived, ...)</OnEvent>
                 </Scripts>
             </Frame>
         </Frames>
         <Scripts>
-            <OnLoad>
-                NHTargetFrame_OnLoad(self)
-                self:RegisterEvent("UNIT_TARGET")
-            </OnLoad>
-            <OnEvent>
-                NHPlayerTargetFrame:updateTarget(...)
-                NHCombatLog:OnUnitTargetChanged(...)
-            </OnEvent>
+            <OnLoad>self:RegisterEvent("UNIT_TARGET")</OnLoad>
+            <OnEvent>NHEventManager:emit(NHEvent.unitTargetChanged, ...)</OnEvent>
         </Scripts>
     </Frame>
 </Ui>

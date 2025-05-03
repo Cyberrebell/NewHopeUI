@@ -1,6 +1,6 @@
 NHRaid = { members = {} }
 
-function NHRaid_OnLoad(self)
+local function load()
     for i=1,30 do
         local raidMember = _G["NHRaid"..i]
         local yOffset = (i - 1) % 10
@@ -10,15 +10,14 @@ function NHRaid_OnLoad(self)
     end
 end
 
-function NHRaid_OnRaidRoasterUpdate()
-    NHPlayer:updateSpec()
-    NHRaid:update()
-end
-
-function NHRaid:update()
+local function update()
     for _, raidMember in pairs(NHRaid.members) do
         raidMember:setHealerMode(NHPlayer.isHeal)
         raidMember:update()
     end
     _G["NHPlayerTargetTarget"]:setHealerMode(NHPlayer.isHeal)
 end
+
+NHEventManager:connect(NHEvent.enteredWorld, load)
+NHEventManager:connect(NHEvent.s0IntervalTick, update)
+NHEventManager:connect(NHEvent.raidRoasterUpdate, update)

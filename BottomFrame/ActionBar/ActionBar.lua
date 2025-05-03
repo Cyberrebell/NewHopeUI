@@ -21,9 +21,11 @@ local function AddActionButtons()
     local panicButton = NHActionButton:new(71, frame)
     panicButton:SetPoint("BOTTOMLEFT", 0, 162)
     panicButton:SetScale(1)
+    NHActionButtons[71] = panicButton
     local mechanicButton = NHActionButton:new(72, frame)
     mechanicButton:SetPoint("BOTTOMLEFT", 476, 162)
     mechanicButton:SetScale(1)
+    NHActionButtons[72] = mechanicButton
 end
 
 function NHKeybinds()
@@ -51,5 +53,14 @@ function NHUpdateKeyBindings()
     end
 end
 
+local function updateButtonsP1()
+    for _, button in pairs(NHActionButtons) do
+        NHActionButton:updateState(button)
+        NHActionButton:updateIcon(button)
+        NHActionButton:updateCount(button)
+    end
+end
+
 NHEventManager:connect(NHEvent.enteredWorld, AddActionButtons)
+NHEventManager:connect(NHEvent.s1IntervalTick, updateButtonsP1)
 NHEventManager:connect(NHEvent.enteredWorld, NHUpdateKeyBindings)

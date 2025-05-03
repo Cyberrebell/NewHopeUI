@@ -34,10 +34,9 @@
             </Layer>
         </Layers>
         <Scripts>
-            <OnUpdate>NHActionButton:OnUpdate(self, elapsed)</OnUpdate>
             <OnDragStart>NHActionButton:OnDragStart(self, button)</OnDragStart>
             <OnReceiveDrag>NHActionButton:OnReceiveDrag(self)</OnReceiveDrag>
-            <PostClick>NHActionButton:PostClick(self, button, down)</PostClick>
+            <PostClick>NHActionButton:updateState(self)</PostClick>
         </Scripts>
     </CheckButton>
 </Ui>

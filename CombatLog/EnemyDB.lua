@@ -1,28 +1,30 @@
 NHEnemyDB = {}
-NHEnemyDBEvents = {
-    onEnemyAdded = {},
-    onEnemyRemoved = {},
-    onEnemiesUpdated = {}
-}
 
 function NHEnemyDB_registerUnit(GUID, name, flags)
     if NHEnemyDB[GUID] then return end
     if bit.band(COMBATLOG_OBJECT_REACTION_HOSTILE, flags) ~= 0 then
         NHEnemyDB[GUID] = {guid = GUID, name = name, hp = {value = 1, max = 1}, heat = 0, references = {}, threat = {}, pos = {}}
         NHEnemyDB[GUID].pos.x, NHEnemyDB[GUID].pos.y = GetPlayerMapPosition("player")
-        for _, value in ipairs(NHEnemyDBEvents.onEnemyAdded) do
-            value(GUID) -- emit onEnemyAdded Event for all listeners
-        end
+        NHEventManager:emit(NHEvent.enemyAdded, GUID)
     end
 end
 
 function NHEnemyDB_removeUnit(GUID)
     if NHEnemyDB[GUID] then
         NHEnemyDB[GUID] = nil
-        for _, value in ipairs(NHEnemyDBEvents.onEnemyRemoved) do
-            value(GUID) -- emit onEnemyRemoved Event for all listeners
-        end
+        NHEventManager:emit(NHEvent.enemyRemoved, GUID)
     end
+end
+
+function NHEnemyDB_get_ordered_by_hp_max_desc()
+    local sorted = {}
+    for _, val in pairs(NHEnemyDB) do
+        table.insert(sorted, val)
+    end
+    table.sort(sorted, function (a, b)
+        return a.hp.max > b.hp.max
+    end)
+    return sorted
 end
 
 local function NHEnemyDB_cleanupOutdatedReferences()
@@ -56,19 +58,15 @@ end
 function NHEnemyDB_inspectUnit(reference)
     inspectUnit(reference)
     NHEnemyDB_cleanupOutdatedReferences()
-    for _, value in ipairs(NHEnemyDBEvents.onEnemiesUpdated) do
-        value() -- emit onEnemiesUpdated Event for all listeners
-    end
+    NHEventManager:emit(NHEvent.enemiesUpdated)
 end
 
 function NHEnemyDB_truncate()
     NHTable_truncate(NHEnemyDB)
-    for _, value in ipairs(NHEnemyDBEvents.onEnemiesUpdated) do
-        value() -- emit onEnemiesUpdated Event for all listeners
-    end
+    NHEventManager:emit(NHEvent.enemiesUpdated)
 end
 
-function NHEnemyDB_update()
+local function update()
     for GUID, unit in pairs(NHEnemyDB) do
         local playerDistance = math.sqrt(math.pow(unit.pos.x - NHPlayer.pos.x, 2) + math.pow(unit.pos.y - NHPlayer.pos.y, 2), 2)
         if playerDistance > 0.05 then
@@ -85,3 +83,9 @@ function NHEnemyDB_update()
         end
     end
 end
+
+NHEventManager:connect(NHEvent.s1IntervalTick, update)
+NHEventManager:connect(NHEvent.unitTargetChanged, function (reference) NHEnemyDB_inspectUnit(reference.."target") end)
+NHEventManager:connect(NHEvent.playerMouseoverChanged, function (reference) NHEnemyDB_inspectUnit("mouseover") end)
+NHEventManager:connect(NHEvent.enterCombat, function () NHEnemyDB_inspectUnit("target") end)
+NHEventManager:connect(NHEvent.leaveCombat, NHEnemyDB_truncate)

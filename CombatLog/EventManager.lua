@@ -1,5 +1,14 @@
 NHEvent = {
+    s0IntervalTick = {},
+    s1IntervalTick = {},
+    s2IntervalTick = {},
     enteredWorld = {},
+    raidRoasterUpdate = {},
+    unitTargetChanged = {},
+    playerMouseoverChanged = {},
+    addonMessageReceived = {},
+    enterCombat = {},
+    leaveCombat = {},
     enemyAdded = {},
     enemyRemoved = {},
     enemiesUpdated = {}

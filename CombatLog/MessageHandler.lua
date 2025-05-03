@@ -27,7 +27,7 @@ local function sendThreatMessage(reference, targetGUID)
     SendAddonMessage("TL2", msg, "RAID")
 end
 
-function NHMessageHandler:OnAddonMessageReceived(prefix, text, _, sender)
+local function handleAddonMessage(prefix, text, _, sender)
     if prefix == "TL2" then
         local subject = string.sub(text, 0, 2)
         local threatTarget
@@ -54,9 +54,12 @@ function NHMessageHandler:OnAddonMessageReceived(prefix, text, _, sender)
     end
 end
 
-function NHMessageHandler:EnableThreatMessages()
+local function enableThreatMessages()
     if not NHMessageHandler.threatMessagesStarted then
         NHMessageHandler.threatMessagesStarted = true
         SendAddonMessage("TL2", "RU", "WHISPER", "Btbserver")
     end
 end
+
+NHEventManager:connect(NHEvent.enterCombat, enableThreatMessages)
+NHEventManager:connect(NHEvent.addonMessageReceived, handleAddonMessage)

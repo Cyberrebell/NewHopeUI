@@ -16,10 +16,6 @@ local function NHEnemyDB_threat_player_and_max(GUID)
     return playerThreat, maxThreat
 end
 
-function NHTargetBar:PostClick(frame, button, down)
-    frame:SetChecked(0)
-end
-
 function NHTargetBar:update(frame)
     if frame.target then
         local hp = frame.target.hp.value
@@ -40,7 +36,7 @@ function NHTargetBar:update(frame)
     end
 end
 
-function NHTargetBar:SetSmallMode(frame, value)
+function NHTargetBar:setSmallMode(frame, value)
     frame.smallmode = value
     if frame.smallmode then
         local font, _, flags = frame.text:GetFont()
@@ -48,7 +44,7 @@ function NHTargetBar:SetSmallMode(frame, value)
     end
 end
 
-function NHTargetBar_OnLoad(frame)
+function NHTargetBar_load(frame)
     frame.text = _G[frame:GetName().."Text"]
     frame.button = _G[frame:GetName().."Button"]
     frame.threat = _G[frame:GetName().."ThreatBar"]

@@ -1,23 +1,19 @@
-local delta_interval = 0.3
-local delta = 0
+local s1_delta_interval = 0.3
+local s1_delta = 0
+local s2_delta_interval = 1.0
+local s2_delta = 0
 
 function NewHopeUI_OnUpdate(frame, elapsed)
-    delta = delta + elapsed
-    if delta > delta_interval then
-        NHPlayer.pos.x, NHPlayer.pos.y = GetPlayerMapPosition("player")
-        NHEnemyDB_update()
-
-        NHPlayerTargetFrame:update()
-
-        for _, bar in pairs(NHTargetFrame.targetBars) do
-            NHTargetBar:update(bar)
-        end
-
-        NHRaid:update()
-
-        NHBuffFrame:update()
-
-        delta = delta - delta_interval
+    NHEventManager:emit(NHEvent.s0IntervalTick)
+    s1_delta = s1_delta + elapsed
+    s2_delta = s2_delta + elapsed
+    if s1_delta > s1_delta_interval then
+        NHEventManager:emit(NHEvent.s1IntervalTick)
+        s1_delta = s1_delta - s1_delta_interval
+    end
+    if s2_delta > s2_delta_interval then
+        NHEventManager:emit(NHEvent.s2IntervalTick)
+        s2_delta = s2_delta - s2_delta_interval
     end
 end
 

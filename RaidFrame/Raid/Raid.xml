@@ -83,13 +83,8 @@
             </Frame>
         </Frames>
         <Scripts>
-            <OnLoad>
-                NHRaid_OnLoad(self)
-                self:RegisterEvent("RAID_ROSTER_UPDATE")
-            </OnLoad>
-            <OnEvent>
-                NHRaid_OnRaidRoasterUpdate()
-            </OnEvent>
+            <OnLoad>self:RegisterEvent("RAID_ROSTER_UPDATE")</OnLoad>
+            <OnEvent>NHEventManager:emit(NHEvent.raidRoasterUpdate)</OnEvent>
         </Scripts>
     </Frame>
 </Ui>

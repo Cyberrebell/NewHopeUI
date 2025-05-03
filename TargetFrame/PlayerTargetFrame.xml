@@ -129,8 +129,7 @@
             <Frame name="NHPlayerTargetThreatBox" inherits="NHPlayerTargetThreatBox"/>
         </Frames>
         <Scripts>
-            <OnLoad>NHPlayerTargetFrame_OnLoad(self)</OnLoad>
-            <OnUpdate>NHPlayerTargetFrame_OnUpdate(self, elapsed)</OnUpdate>
+            <OnLoad>NHPlayerTargetFrame_load(self)</OnLoad>
         </Scripts>
         <BarTexture file="Interface/TargetingFrame/UI-StatusBar"/>
         <BarColor r="1" g="0" b="0" a="0.2"/>

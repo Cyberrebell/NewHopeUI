@@ -83,10 +83,7 @@
             </Frame>
         </Frames>
         <Scripts>
-            <OnLoad>
-                NHBuffFrame_OnLoad(self)
-                self:RegisterEvent("PLAYER_ENTERING_WORLD")
-            </OnLoad>
+            <OnLoad>self:RegisterEvent("PLAYER_ENTERING_WORLD")</OnLoad>
             <OnEvent>NHEventManager:emit(NHEvent.enteredWorld)</OnEvent>
         </Scripts>
     </Frame>

@@ -12,12 +12,6 @@ function NHActionButton:new(slot, parentFrame)
     return button
 end
 
-function NHActionButton:OnUpdate(self, elapsed)
-    NHActionButton:UpdateState(self)
-    NHActionButton:UpdateIcon(self)
-    NHActionButton:UpdateCount(self)
-end
-
 function NHActionButton:OnDragStart(self, button)
     PickupAction(self.slot);
 end
@@ -26,11 +20,7 @@ function NHActionButton:OnReceiveDrag(self)
     PlaceAction(self.slot)
 end
 
-function NHActionButton:PostClick(self, button, down)
-    NHActionButton:UpdateState(self)
-end
-
-function NHActionButton:UpdateState(self)
+function NHActionButton:updateState(self)
 	if (IsCurrentAction(self.slot) or IsAutoRepeatAction(self.slot)) then
 		self:SetChecked(1)
 	else
@@ -38,7 +28,7 @@ function NHActionButton:UpdateState(self)
 	end
 end
 
-function NHActionButton:UpdateIcon(self)
+function NHActionButton:updateIcon(self)
     if (HasAction(self.slot)) then
         self:SetNormalTexture("")
         self:SetBackdrop({bgFile=GetActionTexture(self.slot)})
@@ -53,7 +43,7 @@ function NHActionButton:UpdateIcon(self)
     end
 end
 
-function NHActionButton:UpdateCount(self)
+function NHActionButton:updateCount(self)
     local count = GetActionCount(self.slot)
     if (count == 0) then
         count = nil

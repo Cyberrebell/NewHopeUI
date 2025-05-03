@@ -7,23 +7,14 @@ function NHCombatLog:OnCombatLog(timestamp, event, sourceGUID, sourceName, sourc
     NHEnemyDB_registerUnit(destGUID, destName, destFlags)
 end
 
-function NHCombatLog:OnPlayerMouseoverChanged()
-    NHEnemyDB_inspectUnit("mouseover")
-end
-
-function NHCombatLog:OnUnitTargetChanged(reference)
-    NHEnemyDB_inspectUnit(reference.."target")
-    FocusHeat_update()
-end
-
-function NHCombatLog:OnEnterCombat()
+local function enterCombat()
     NHIsInfight = true
     NHPlayerGUID = UnitGUID("player")
-    NHEnemyDB_inspectUnit("target")
-    NHMessageHandler:EnableThreatMessages()
 end
 
-function NHCombatLog:OnLeaveCombat()
+local function leaveCombat()
     NHIsInfight = false
-    NHEnemyDB_truncate()
 end
+
+NHEventManager:connect(NHEvent.enterCombat, enterCombat)
+NHEventManager:connect(NHEvent.leaveCombat, leaveCombat)

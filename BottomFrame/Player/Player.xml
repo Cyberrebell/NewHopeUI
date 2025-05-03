@@ -118,9 +118,5 @@
                 <BarColor r="1" g="0.7" b="0"/>
             </StatusBar>
         </Frames>
-        <Scripts>
-            <OnLoad>NHPlayer_OnLoad(self)</OnLoad>
-            <OnUpdate>NHPlayer_OnUpdate(self, elapsed)</OnUpdate>
-        </Scripts>
     </Frame>
 </Ui>

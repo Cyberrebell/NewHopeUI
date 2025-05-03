@@ -37,7 +37,7 @@
                     <Attribute name="unit" value=""/>
                 </Attributes>
                 <Scripts>
-                    <PostClick>NHTargetBar:PostClick(self, button, down)</PostClick>
+                    <PostClick>self:SetChecked(0)</PostClick>
                 </Scripts>
                 <NormalTexture file=""/>
             </CheckButton>
@@ -53,7 +53,7 @@
             </StatusBar>
         </Frames>
         <Scripts>
-            <OnLoad>NHTargetBar_OnLoad(self)</OnLoad>
+            <OnLoad>NHTargetBar_load(self)</OnLoad>
         </Scripts>
         <BarTexture file="Interface/TargetingFrame/UI-StatusBar"/>
         <BarColor r="1" g="0" b="0"/>

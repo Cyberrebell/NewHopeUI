@@ -10,7 +10,7 @@ local playerCastbarIcon
 local incomingHeal
 local incomingHealText
 
-function NHPlayer_OnLoad(self)
+local function load()
     playerHealth = _G["NHPlayerHealth"]
     playerHealthText = _G["NHPlayerHealthText"]
     playerPower = _G["NHPlayerPower"]
@@ -23,7 +23,7 @@ function NHPlayer_OnLoad(self)
     _, NHPlayer.class = UnitClass("player")
 end
 
-function NHPlayer_OnUpdate(self, elapsed)
+local function update()
     local maxHP = UnitHealthMax("player")
     playerHealth:SetMinMaxValues(0, maxHP)
     playerHealth:SetValue(UnitHealth("player"))
@@ -60,7 +60,11 @@ function NHPlayer_OnUpdate(self, elapsed)
     end
 end
 
-function NHPlayer:updateSpec()
+local function updatePosition()
+    NHPlayer.pos.x, NHPlayer.pos.y = GetPlayerMapPosition("player")
+end
+
+local function updateSpec()
     for tab = 1, GetNumTalentTabs() do
         local _, _, points = GetTalentTabInfo(tab)
         NHPlayer.spec[tab] = points
@@ -78,3 +82,8 @@ function NHPlayer:updateSpec()
         end
     end
 end
+
+NHEventManager:connect(NHEvent.enteredWorld, load)
+NHEventManager:connect(NHEvent.s0IntervalTick, update)
+NHEventManager:connect(NHEvent.s1IntervalTick, updatePosition)
+NHEventManager:connect(NHEvent.raidRoasterUpdate, updateSpec)

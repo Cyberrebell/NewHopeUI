@@ -1,6 +1,6 @@
 NHBuffFrame = { buffFrames = {}, buffs = {} }
 
-function NHBuffFrame_OnLoad(self)
+local function load()
     for i=1,20 do
         NHBuffFrame.buffFrames[i] = _G["NHBuff"..i]
         local rowIndex = (i - 1) % 5
@@ -8,7 +8,7 @@ function NHBuffFrame_OnLoad(self)
     end
 end
 
-function NHBuffFrame:update()
+local function update()
     NHTable_truncate(NHBuffFrame.buffs)
     NHBuffFrame.buffs = {}
     local i = 1
@@ -29,3 +29,6 @@ function NHBuffFrame:update()
         end
     end
 end
+
+NHEventManager:connect(NHEvent.enteredWorld, load)
+NHEventManager:connect(NHEvent.s2IntervalTick, update)
