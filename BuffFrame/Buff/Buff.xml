@@ -8,6 +8,35 @@
         <Anchors>
             <Anchor point="RIGHT"/>
         </Anchors>
+        <Layers>
+            <Layer>
+                <Texture>
+                    <Color r="0" g="0" b="0" a="0.3"/>
+                </Texture>
+                <FontString name="$parentDuration" inherits="GameFontNormal" font="Fonts/ARIALN.TTF">
+                    <Anchors>
+                        <Anchor point="BOTTOM">
+                            <Offset>
+                                <AbsDimension x="0" y="-4"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                    <FontHeight>
+                        <AbsValue val="10"/>
+                    </FontHeight>
+                    <Color r="1" g="1" b="1"/>
+                </FontString>
+                <FontString name="$parentCounts" inherits="GameFontNormal" font="Fonts/ARIALN.TTF">
+                    <Anchors>
+                        <Anchor point="TOPRIGHT"/>
+                    </Anchors>
+                    <FontHeight>
+                        <AbsValue val="10"/>
+                    </FontHeight>
+                    <Color r="1" g="1" b="1"/>
+                </FontString>
+            </Layer>
+        </Layers>
         <Scripts>
             <OnLoad>NHBuff_OnLoad(self)</OnLoad>
             <OnClick>self:PostClick(self, button, down)</OnClick>

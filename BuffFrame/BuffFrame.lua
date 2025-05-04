@@ -21,12 +21,7 @@ local function update()
 
     for i=1,20 do
         local buffFrame = NHBuffFrame.buffFrames[i]
-        local buff = NHBuffFrame.buffs[i]
-        if buff then
-            buffFrame:update(buff.icon, buff.name)
-        else
-            buffFrame:update(nil, nil)
-        end
+        buffFrame:update(NHBuffFrame.buffs[i])
     end
 end
 
