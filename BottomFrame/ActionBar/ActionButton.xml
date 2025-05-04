@@ -9,6 +9,9 @@
             <Attribute name="type" value="action"/>
             <Attribute name="action" value="0" type="number"/>
         </Attributes>
+        <Frames>
+            <Cooldown name="$parentCooldowns" inherits="CooldownFrameTemplate"/>
+        </Frames>
         <Layers>
             <Layer>
                 <FontString name="$parentKeybind" inherits="GameFontNormal">
@@ -21,11 +24,11 @@
                     </Anchors>
                     <Color r="1" g="1" b="1"/>
                 </FontString>
-                <FontString name="$parentCount" inherits="GameFontNormal">
+                <FontString name="$parentCounts" inherits="GameFontNormal">
                     <Anchors>
                         <Anchor point="BOTTOMRIGHT">
                             <Offset>
-                                <AbsDimension x="-4" y="-4"/>
+                                <AbsDimension x="-2" y="2"/>
                             </Offset>
                         </Anchor>
                     </Anchors>

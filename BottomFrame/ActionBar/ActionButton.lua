@@ -7,7 +7,8 @@ function NHActionButton:new(slot, parentFrame)
     button:SetScale(0.77)
     button:SetAttribute("action", slot)
     button.slot = slot
-    button.count = _G[button:GetName().."Count"]
+    button.count = _G[button:GetName().."Counts"]
+    button.cooldown = _G[button:GetName().."Cooldowns"]
     --_G[button:GetName().."Keybind"]:SetText(slot)
     return button
 end
@@ -32,10 +33,15 @@ function NHActionButton:updateIcon(self)
     if (HasAction(self.slot)) then
         self:SetNormalTexture("")
         self:SetBackdrop({bgFile=GetActionTexture(self.slot)})
-        if IsActionInRange(self.slot) == 0 then
-            self:SetBackdropColor(1, 0, 0)
+        local isUsable = IsUsableAction(self.slot)
+        if isUsable then
+            if IsActionInRange(self.slot) == 0 then
+                self:SetBackdropColor(1, 0.1, 0.1)
+            else
+                self:SetBackdropColor(1, 1, 1)
+            end
         else
-            self:SetBackdropColor(1, 1, 1)
+            self:SetBackdropColor(0.4, 0.4, 0.4)
         end
     else
         self:SetNormalTexture("Interface/Buttons/UI-Quickslot")
@@ -44,11 +50,15 @@ function NHActionButton:updateIcon(self)
 end
 
 function NHActionButton:updateCount(self)
-    local count = GetActionCount(self.slot)
-    if (count == 0) then
-        count = nil
+    local count = nil
+    if IsConsumableAction(self.slot) or IsStackableAction(self.slot) then
+        count = GetActionCount(self.slot)
     end
     self.count:SetText(count)
+end
+
+function NHActionButton:updateCooldown(self)
+    CooldownFrame_SetTimer(self.cooldown, GetActionCooldown(self.slot))
 end
 
 function NHActionButton:updateKeybind(self, key)

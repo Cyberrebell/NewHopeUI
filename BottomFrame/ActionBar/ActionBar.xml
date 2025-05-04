@@ -15,5 +15,9 @@
         <Backdrop bgFile="Interface/Tooltips/UI-Tooltip-Background">
             <Color r="0" g="0" b="0" a="0.6"/>
         </Backdrop>
+        <Scripts>
+            <OnLoad>self:RegisterEvent("ACTIONBAR_UPDATE_COOLDOWN")</OnLoad>
+            <OnEvent>NHEventManager:emit(NHEvent.cooldownUpdated)</OnEvent>
+        </Scripts>
     </Frame>
 </Ui>

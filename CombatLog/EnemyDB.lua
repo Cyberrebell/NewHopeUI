@@ -3,7 +3,7 @@ NHEnemyDB = {}
 function NHEnemyDB_registerUnit(GUID, name, flags)
     if NHEnemyDB[GUID] then return end
     if bit.band(COMBATLOG_OBJECT_REACTION_HOSTILE, flags) ~= 0 then
-        NHEnemyDB[GUID] = {guid = GUID, name = name, hp = {value = 1, max = 1}, heat = 0, references = {}, threat = {}, pos = {}}
+        NHEnemyDB[GUID] = {guid = GUID, name = name, hp = {value = 1, max = 1}, heat = 0, references = {}, threat = {}, pos = {x = 0, y = 0}}
         NHEnemyDB[GUID].pos.x, NHEnemyDB[GUID].pos.y = GetPlayerMapPosition("player")
         NHEventManager:emit(NHEvent.enemyAdded, GUID)
     end

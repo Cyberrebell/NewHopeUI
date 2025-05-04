@@ -7,6 +7,7 @@ NHEvent = {
     unitTargetChanged = {},
     playerMouseoverChanged = {},
     addonMessageReceived = {},
+    cooldownUpdated = {},
     enterCombat = {},
     leaveCombat = {},
     enemyAdded = {},

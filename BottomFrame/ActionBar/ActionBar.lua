@@ -34,6 +34,12 @@ function NHKeybinds()
         SetBinding("CTRL-"..key, "MULTIACTIONBAR4BUTTON"..i)
         SetBinding("SHIFT-"..key, "MULTIACTIONBAR3BUTTON"..i)
     end
+    SetBinding("SHIFT-UP")
+    SetBinding("SHIFT-DOWN")
+    SetBinding("SHIFT-MOUSEWHEELUP")
+    SetBinding("SHIFT-MOUSEWHEELDOWN")
+    SaveBindings(GetCurrentBindingSet())
+    ChangeActionBarPage(1)
 end
 
 function NHUpdateKeyBindings()
@@ -61,6 +67,13 @@ local function updateButtonsP1()
     end
 end
 
+local function updateButtonsCooldown()
+    for _, button in pairs(NHActionButtons) do
+        NHActionButton:updateCooldown(button)
+    end
+end
+
 NHEventManager:connect(NHEvent.enteredWorld, AddActionButtons)
 NHEventManager:connect(NHEvent.s1IntervalTick, updateButtonsP1)
 NHEventManager:connect(NHEvent.enteredWorld, NHUpdateKeyBindings)
+NHEventManager:connect(NHEvent.cooldownUpdated, updateButtonsCooldown)

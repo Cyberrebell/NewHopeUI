@@ -4,18 +4,14 @@ function NHRaidMember_OnLoad(frame)
     frame.mana = _G[frame:GetName().."ManaBar"]
     frame.button:RegisterForClicks("AnyDown")
     frame.forceVisible = false
+    frame.reference = nil
 
     function frame:update()
-        local playerName = UnitName(frame.reference)
-        frame.text:SetText(playerName)
-        frame:SetMinMaxValues(0, UnitHealthMax(frame.reference))
-        frame:SetValue(UnitHealth(frame.reference))
-        frame.mana:SetMinMaxValues(0, UnitManaMax(frame.reference))
-        frame.mana:SetValue(UnitMana(frame.reference))
-        if playerName then
-            frame:Show()
-        elseif not frame.forceVisible then
-            frame:Hide()
+        if frame.reference ~= nil then
+            frame:SetMinMaxValues(0, UnitHealthMax(frame.reference))
+            frame:SetValue(UnitHealth(frame.reference))
+            frame.mana:SetMinMaxValues(0, UnitManaMax(frame.reference))
+            frame.mana:SetValue(UnitMana(frame.reference))
         end
     end
 
@@ -24,11 +20,16 @@ function NHRaidMember_OnLoad(frame)
         if GetNumRaidMembers() > 0 then
             refPrefix = "raid"
         end
-        DEFAULT_CHAT_FRAME:AddMessage(refPrefix)
         frame.reference = refPrefix..string.sub(frame:GetName(), 7)
         frame.button:SetAttribute("unit", frame.reference)
+        local playerName = UnitName(frame.reference)
+        frame.text:SetText(playerName)
+        if playerName then
+            frame:Show()
+        elseif not frame.forceVisible then
+            frame:Hide()
+        end
     end
-    frame:updateReference()
 
     function frame:setHealerMode(active)
         if active then

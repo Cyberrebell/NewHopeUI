@@ -12,19 +12,21 @@ end
 
 local function update()
     for _, raidMember in pairs(NHRaid.members) do
-        raidMember:setHealerMode(NHPlayer.isHeal)
         raidMember:update()
     end
     _G["NHPlayerTargetTarget"]:setHealerMode(NHPlayer.isHeal)
 end
 
-local function updateRoaster()
+local function updateReferences()
     for _, raidMember in pairs(NHRaid.members) do
         raidMember:updateReference()
+        raidMember:setHealerMode(NHPlayer.isHeal)
         raidMember:update()
     end
 end
 
 NHEventManager:connect(NHEvent.enteredWorld, load)
+NHEventManager:connect(NHEvent.enteredWorld, updateReferences)
 NHEventManager:connect(NHEvent.s0IntervalTick, update)
-NHEventManager:connect(NHEvent.raidRoasterUpdate, updateRoaster)
+NHEventManager:connect(NHEvent.raidRoasterUpdate, updateReferences)
+NHEventManager:connect(NHEvent.leaveCombat, updateReferences)
