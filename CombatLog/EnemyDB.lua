@@ -40,7 +40,9 @@ end
 local function inspectUnit(reference)
     local GUID = UnitGUID(reference)
     if not GUID then return end
-    if unitReaction == nil or unitReaction > 2 or UnitHealth(reference) < 1 then return end
+    if UnitReaction(reference, "player") > 2 then return end
+    if NHEnemyDB[GUID] then NHEnemyDB[GUID].hp.value = UnitHealth(reference) end
+    if UnitHealth(reference) < 1 then return end
     if not NHEnemyDB[GUID] then NHEnemyDB_registerUnit(GUID, UnitName(reference), COMBATLOG_OBJECT_REACTION_HOSTILE) end
     NHEnemyDB[GUID].hp.value = UnitHealth(reference)
     NHEnemyDB[GUID].hp.max = UnitHealthMax(reference)
@@ -77,8 +79,18 @@ local function update()
                 NHEnemyDB[GUID].hp.value = UnitHealth(ref)
             end
             if NHEnemyDB[GUID].hp.value < 1 then
-                DEFAULT_CHAT_FRAME:AddMessage("Removing "..NHEnemyDB[GUID].name.." because of death.")
                 NHEnemyDB_removeUnit(GUID)
+            end
+        end
+    end
+end
+
+local function handleMouseover(reference)
+    NHEnemyDB_inspectUnit("mouseover")
+    for _, unit in pairs(NHEnemyDB) do
+        for key, ref in pairs(unit.references) do
+            if ref == "mouseover" then
+                table.remove(unit.references, key)
             end
         end
     end
@@ -86,6 +98,6 @@ end
 
 NHEventManager:connect(NHEvent.s1IntervalTick, update)
 NHEventManager:connect(NHEvent.unitTargetChanged, function (reference) NHEnemyDB_inspectUnit(reference.."target") end)
-NHEventManager:connect(NHEvent.playerMouseoverChanged, function (reference) NHEnemyDB_inspectUnit("mouseover") end)
+NHEventManager:connect(NHEvent.playerMouseoverChanged, handleMouseover)
 NHEventManager:connect(NHEvent.enterCombat, function () NHEnemyDB_inspectUnit("target") end)
 NHEventManager:connect(NHEvent.leaveCombat, NHEnemyDB_truncate)
