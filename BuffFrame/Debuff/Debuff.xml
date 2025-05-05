@@ -3,16 +3,13 @@
     xsi:schemaLocation="../UI.xsd">
     <CheckButton name="NHDebuff" inherits="ActionButtonTemplate" virtual="true">
         <Size>
-            <AbsDimension x="40" y="40"/>
+            <AbsDimension x="120" y="120"/>
         </Size>
         <Anchors>
             <Anchor point="RIGHT"/>
         </Anchors>
         <Layers>
             <Layer>
-                <Texture>
-                    <Color r="0" g="0" b="0" a="0.3"/>
-                </Texture>
                 <FontString name="$parentDuration" inherits="GameFontNormal" font="Fonts/ARIALN.TTF">
                     <Anchors>
                         <Anchor point="BOTTOM">
@@ -37,8 +34,19 @@
                 </FontString>
             </Layer>
         </Layers>
+        <Frames>
+            <Frame name="$parentIconFrame">
+                <Anchors>
+                    <Anchor point="CENTER"/>
+                </Anchors>
+                <Size>
+                    <AbsDimension x="120" y="120"/>
+                </Size>
+            </Frame>
+        </Frames>
         <Scripts>
             <OnLoad>NHDebuff_OnLoad(self)</OnLoad>
+            <OnClick>self:SetChecked(0)</OnClick>
         </Scripts>
         <NormalTexture file=""/>
     </CheckButton>
