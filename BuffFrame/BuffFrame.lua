@@ -1,4 +1,4 @@
-NHBuffFrame = { buffFrames = {}, buffs = {} }
+NHBuffFrame = { buffFrames = {}, buffs = {}, debuffFrames = {}, debuffs = {} }
 
 local function load()
     for i=1,20 do
@@ -6,9 +6,13 @@ local function load()
         local rowIndex = (i - 1) % 5
         NHBuffFrame.buffFrames[i]:SetPoint("RIGHT", rowIndex * -22, 0)
     end
+    for i=1,5 do
+        NHBuffFrame.debuffFrames[i] = _G["NHDebuff"..i]
+        NHBuffFrame.debuffFrames[i]:SetPoint("RIGHT", (i - 1) * -42, 0)
+    end
 end
 
-local function update()
+local function updateBuffs()
     NHTable_truncate(NHBuffFrame.buffs)
     NHBuffFrame.buffs = {}
     local i = 1
@@ -20,10 +24,26 @@ local function update()
     end
 
     for i=1,20 do
-        local buffFrame = NHBuffFrame.buffFrames[i]
-        buffFrame:update(NHBuffFrame.buffs[i])
+        NHBuffFrame.buffFrames[i]:update(NHBuffFrame.buffs[i])
+    end
+end
+
+local function updateDebuffs()
+    NHTable_truncate(NHBuffFrame.debuffs)
+    NHBuffFrame.debuffs = {}
+    local i = 1
+    local name, rank, icon, count, duration, expirationTime = UnitDebuff("player", i)
+    while name do
+        NHBuffFrame.debuffs[i] = { name = name, rank = rank, icon = icon, count = count, duration = duration, expirationTime = expirationTime }
+        i = i + 1
+        name, rank, icon, count, duration, expirationTime = UnitDebuff("player", i)
+    end
+
+    for i=1,5 do
+        NHBuffFrame.debuffFrames[i]:update(NHBuffFrame.debuffs[i])
     end
 end
 
 NHEventManager:connect(NHEvent.enteredWorld, load)
-NHEventManager:connect(NHEvent.s2IntervalTick, update)
+NHEventManager:connect(NHEvent.s2IntervalTick, updateBuffs)
+NHEventManager:connect(NHEvent.s2IntervalTick, updateDebuffs)

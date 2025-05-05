@@ -81,6 +81,25 @@
                     <CheckButton name="NHBuff20" inherits="NHBuff"/>
                 </Frames>
             </Frame>
+            <Frame>
+                <Size>
+                    <AbsDimension x="208" y="40"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPRIGHT">
+                        <Offset>
+                            <AbsDimension x="-110" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <CheckButton name="NHDebuff1" inherits="NHDebuff"/>
+                    <CheckButton name="NHDebuff2" inherits="NHDebuff"/>
+                    <CheckButton name="NHDebuff3" inherits="NHDebuff"/>
+                    <CheckButton name="NHDebuff4" inherits="NHDebuff"/>
+                    <CheckButton name="NHDebuff5" inherits="NHDebuff"/>
+                </Frames>
+            </Frame>
         </Frames>
         <Scripts>
             <OnLoad>self:RegisterEvent("PLAYER_ENTERING_WORLD")</OnLoad>

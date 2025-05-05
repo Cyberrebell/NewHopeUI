@@ -1,4 +1,5 @@
 local function applyBasicSettings(chatFrame)
+	FCF_SetLocked(chatFrame, 0)
 	chatFrame:SetHeight(246)
 	chatFrame:SetWidth(630)
 	chatFrame:SetPoint("BOTTOMLEFT", 24, 36)

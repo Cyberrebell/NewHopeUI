@@ -18,6 +18,8 @@ BottomFrame\Stats\Stats.lua
 BottomFrame\Stats\Stats.xml
 BuffFrame\Buff\Buff.lua
 BuffFrame\Buff\Buff.xml
+BuffFrame\Debuff\Debuff.lua
+BuffFrame\Debuff\Debuff.xml
 BuffFrame\BuffFrame.lua
 BuffFrame\BuffFrame.xml
 RaidFrame\Raid\RaidMember.lua
