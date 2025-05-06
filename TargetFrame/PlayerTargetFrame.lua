@@ -82,6 +82,7 @@ local function updateValues()
         frame.mana:SetValue(UnitMana("target"))
         frame.threatbox:update()
         frame.targettarget:update()
+        frame.targettarget.text:SetText(UnitName(frame.targettarget.reference))
         setVisible(true)
     else
         setVisible(false)

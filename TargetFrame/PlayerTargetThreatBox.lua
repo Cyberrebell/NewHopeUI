@@ -17,7 +17,7 @@ function NHPlayerTargetThreatBox_OnLoad(frame)
         end
         local targetThreat = NHEnemyDB[frame.guid].threat
         table.sort(targetThreat, function (a, b)
-            return a > b
+            return a < b
         end)
         local result = {}
         local i = 1
