@@ -40,6 +40,8 @@
             <OnDragStart>NHActionButton:OnDragStart(self, button)</OnDragStart>
             <OnReceiveDrag>NHActionButton:OnReceiveDrag(self)</OnReceiveDrag>
             <PostClick>NHActionButton:updateState(self)</PostClick>
+            <OnEnter>NHActionButton:OnEnter(self)</OnEnter>
+            <OnLeave>NHActionButton:OnLeave(self)</OnLeave>
         </Scripts>
     </CheckButton>
 </Ui>

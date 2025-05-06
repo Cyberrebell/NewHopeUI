@@ -21,6 +21,16 @@ function NHActionButton:OnReceiveDrag(self)
     PlaceAction(self.slot)
 end
 
+function NHActionButton:OnEnter(self)
+    GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+    GameTooltip:SetAction(self.slot)
+    GameTooltip:Show()
+end
+
+function NHActionButton:OnLeave(self)
+    GameTooltip:Hide()
+end
+
 function NHActionButton:updateState(self)
 	if (IsCurrentAction(self.slot) or IsAutoRepeatAction(self.slot)) then
 		self:SetChecked(1)

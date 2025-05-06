@@ -40,6 +40,8 @@
         <Scripts>
             <OnLoad>NHBuff_OnLoad(self)</OnLoad>
             <OnClick>self:PostClick(self, button, down)</OnClick>
+            <OnEnter>self:OnEnter()</OnEnter>
+            <OnLeave>self:OnLeave()</OnLeave>
         </Scripts>
         <NormalTexture file=""/>
     </CheckButton>

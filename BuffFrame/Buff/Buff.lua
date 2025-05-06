@@ -4,6 +4,7 @@ function NHBuff_OnLoad(frame)
     frame.count = _G[frame:GetName().."Counts"]
 
     function frame:update(buff)
+        frame.buff = buff
         if buff then
             frame.name = buff.name
             frame:SetBackdrop({bgFile=buff.icon})
@@ -23,6 +24,16 @@ function NHBuff_OnLoad(frame)
     function frame:PostClick(btn, button, down)
         frame:SetChecked(0)
         CancelPlayerBuff(frame.name)
+    end
+
+    function frame:OnEnter()
+        GameTooltip:SetOwner(frame, "ANCHOR_RIGHT")
+        GameTooltip:SetUnitBuff(frame.buff.unit, frame.buff.index)
+        GameTooltip:Show()
+    end
+
+    function frame:OnLeave()
+        GameTooltip:Hide()
     end
 end
 

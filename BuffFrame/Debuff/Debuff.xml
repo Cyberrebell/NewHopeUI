@@ -14,12 +14,12 @@
                     <Anchors>
                         <Anchor point="BOTTOM">
                             <Offset>
-                                <AbsDimension x="0" y="-4"/>
+                                <AbsDimension x="0" y="-8"/>
                             </Offset>
                         </Anchor>
                     </Anchors>
                     <FontHeight>
-                        <AbsValue val="10"/>
+                        <AbsValue val="14"/>
                     </FontHeight>
                     <Color r="1" g="1" b="1"/>
                 </FontString>
@@ -47,6 +47,8 @@
         <Scripts>
             <OnLoad>NHDebuff_OnLoad(self)</OnLoad>
             <OnClick>self:SetChecked(0)</OnClick>
+            <OnEnter>self:OnEnter()</OnEnter>
+            <OnLeave>self:OnLeave()</OnLeave>
         </Scripts>
         <NormalTexture file=""/>
     </CheckButton>
