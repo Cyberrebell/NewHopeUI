@@ -30,15 +30,17 @@ function NHDebuff_OnLoad(frame)
             frame:SetBackdrop({})
             frame:Hide()
         end
+    end
 
-        function frame:OnEnter()
+    function frame:OnEnter()
+        if frame.buff then
             GameTooltip:SetOwner(frame, "ANCHOR_RIGHT")
             GameTooltip:SetUnitDebuff(frame.buff.unit, frame.buff.index)
             GameTooltip:Show()
         end
+    end
 
-        function frame:OnLeave()
-            GameTooltip:Hide()
-        end
+    function frame:OnLeave()
+        GameTooltip:Hide()
     end
 end

@@ -40,7 +40,8 @@ end
 local function inspectUnit(reference)
     local GUID = UnitGUID(reference)
     if not GUID then return end
-    if UnitReaction(reference, "player") > 2 then return end
+    local unitReaction = UnitReaction(reference, "player")
+    if not unitReaction or unitReaction > 2 then return end
     if NHEnemyDB[GUID] then NHEnemyDB[GUID].hp.value = UnitHealth(reference) end
     if UnitHealth(reference) < 1 then return end
     if not NHEnemyDB[GUID] then NHEnemyDB_registerUnit(GUID, UnitName(reference), COMBATLOG_OBJECT_REACTION_HOSTILE) end

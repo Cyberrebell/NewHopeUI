@@ -4,6 +4,7 @@ function NHRaidMember_OnLoad(frame)
     frame.mana = _G[frame:GetName().."ManaBar"]
     frame.button:RegisterForClicks("AnyDown")
     frame.forceVisible = false
+    frame.raidIndex = tonumber(string.sub(frame:GetName(), 7))
     frame.reference = nil
 
     function frame:update()
@@ -16,11 +17,15 @@ function NHRaidMember_OnLoad(frame)
     end
 
     function frame:updateReference()
-        local refPrefix = "party"
         if GetNumRaidMembers() > 0 then
-            refPrefix = "raid"
+            frame.reference = "raid"..frame.raidIndex
+        else
+            if frame.raidIndex == 1 then
+                frame.reference = "player"
+            else
+                frame.reference = "party"..(frame.raidIndex - 1)
+            end
         end
-        frame.reference = refPrefix..string.sub(frame:GetName(), 7)
         frame.button:SetAttribute("unit", frame.reference)
         local playerName = UnitName(frame.reference)
         frame.text:SetText(playerName)

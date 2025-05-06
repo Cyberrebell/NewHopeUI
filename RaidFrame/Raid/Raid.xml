@@ -83,7 +83,7 @@
             </Frame>
         </Frames>
         <Scripts>
-            <OnLoad>self:RegisterEvent("RAID_ROSTER_UPDATE")</OnLoad>
+            <OnLoad>self:RegisterEvent("PARTY_MEMBERS_CHANGED"); self:RegisterEvent("RAID_ROSTER_UPDATE")</OnLoad>
             <OnEvent>NHEventManager:emit(NHEvent.raidRoasterUpdate)</OnEvent>
         </Scripts>
     </Frame>

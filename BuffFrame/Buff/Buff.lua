@@ -47,7 +47,9 @@ function NHBuff_formatTime(seconds)
         return math.ceil(seconds / 3600).."h"
     elseif seconds > 60 then
         return math.ceil(seconds / 60).."m"
-    else
+    elseif seconds > 0 then
         return math.ceil(seconds).."s"
+    else
+        return ""
     end
 end
